@@ -1,10 +1,10 @@
-import {Check} from "./Check";
+import { Item } from "./Item";
 import {Machine} from "./Machine";
 import {ProductionOrder} from "./ProductionOrder";
 
 export interface Control {
   id: number;
-  checks: Check[];
+  items: Item[];
   scrap: number;
   machine: Machine;
   localDate: Date;

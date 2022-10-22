@@ -7,14 +7,13 @@ import {ActiveProcessListItem} from "../../components/ActiveProcessListItem";
 import {StoredListItem} from "../../components/StoredListItem";
 import {CheckCircleOutlineOutlined, ExpandMore, PendingActionsOutlined, SyncOutlined} from "@mui/icons-material";
 import {Control} from "../../models/Control";
-import {Check} from "../../models/Check";
 import {Machine} from "../../models/Machine";
 
 export const ChecklistProductionOrder = () => {
   const navigate = useNavigate();
   const initial = {
     id: 0,
-    checks: [],
+    items: [],
     scrap: 0,
     machine: {
       id: 0,
@@ -60,8 +59,8 @@ export const ChecklistProductionOrder = () => {
           id: 3,
           name: "Prensa"
         },
-        start: new Date(),
-        end: new Date()
+        startTime: new Date(),
+        endTime: new Date()
       }],
       amountOfDust: 1.5,
       state: 4
@@ -81,7 +80,7 @@ export const ChecklistProductionOrder = () => {
     }
     const control1 = {
       id: 0,
-      checks: [check1, check2],
+      items: [check1, check2],
       scrap: 5,
       machine: {
         id: 0,
@@ -112,19 +111,19 @@ export const ChecklistProductionOrder = () => {
       <Stack spacing={5} style={{ width: '30%', marginTop: '3%' }}>
 
         <div>
-          {control.checks.map((check) => {
+          {control.items.map((item) => {
             return (
-              <Accordion expanded={expanded === String(control.checks.indexOf(check))} onChange={handleChange(String(control.checks.indexOf(check)))}>
+              <Accordion expanded={expanded === String(control.items.indexOf(item))} onChange={handleChange(String(control.items.indexOf(item)))}>
                 <AccordionSummary
                   expandIcon={<ExpandMore />}
                   aria-controls="panel1bh-content"
                   id="panel1bh-header">
-                  <h3> {check.name} </h3>
+                  <h3> {item.name} </h3>
                 </AccordionSummary>
                 <AccordionDetails>
                   <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%' }}>
                     <Checkbox disabled checked />
-                    <h3> {check.description} </h3>
+                    <h3> {item.description} </h3>
                   </div>
                 </AccordionDetails>
               </Accordion>

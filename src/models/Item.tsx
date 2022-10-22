@@ -1,4 +1,4 @@
-export interface Check {
+export interface Item {
   id: number;
   name: string;
   description: string;

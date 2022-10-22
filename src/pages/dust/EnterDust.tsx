@@ -1,11 +1,35 @@
 import { useNavigate } from 'react-router-dom';
 import React, {useState} from "react";
 import {Button, Stack, TextField} from "@mui/material";
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 export const EnterDust = () => {
   const navigate = useNavigate();
 
   const [amount, setAmount] = useState('');
+
+  const handleRequest = () => {
+    if(amount !== '' && Number(amount) !== 0) {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }
+      };
+      axios
+        .post('http://localhost:8080/stock/dust', Number(amount), config)
+        .then((res) => {
+          toast.success("Polvo ingresado")
+          navigate('/')
+        })
+        .catch(() => {
+          toast.error("Hubo un problema ingresando polvo")
+        });
+    } else {
+      toast.error("Por favor ingresar una cantidad valida de polvo")
+    }
+  }
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
@@ -22,7 +46,7 @@ export const EnterDust = () => {
           <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate('/')}>
             <p>Volver</p>
           </Button>
-          <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate('/')}>
+          <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => handleRequest()}>
             <p>Almacenar</p>
           </Button>
         </div>

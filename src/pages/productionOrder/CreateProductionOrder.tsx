@@ -7,6 +7,7 @@ import {ErrorToast, SuccessToast} from "../../common/Toasts";
 import {CreateProductionOrderModel} from "../../models/ProductionOrder";
 import {authRequestInterceptor} from "../../common/axios";
 import {post} from "../../common/http";
+import toast from 'react-hot-toast';
 
 export const CreateProductionOrder = () => {
   const navigate = useNavigate();
@@ -16,25 +17,38 @@ export const CreateProductionOrder = () => {
   const [matrix, setMatrix] = useState('');
   const [amount, setAmount] = useState('');
   const [description, setDescription] = useState('');
+  
+  const validateAllFields = () => {
+    return number !== '' && code !== '' && matrix !== '' && amount !== '';
+  }
 
   const handleRequest = () => {
-    const productionOrder: CreateProductionOrderModel = {
-      orderNumber: Number(number),
-      internalNumber: Number(code),
-      matrixCode: matrix,
-      amountOfPieces: Number(amount),
-      observations: description
-    };
-    post('productionOrder', productionOrder)
-    // axios
-    //   .post('http://localhost:8080/productionOrder', productionOrder, authRequestInterceptor())
-    //   .then((res) => {
-    //     SuccessToast("Orden de produccion ingresada")
-    //     navigate('/')
-    //   })
-    //   .catch(() => {
-    //     ErrorToast("Hubo un problema generando la orden de produccion")
-    //   });
+    if(validateAllFields()) {
+      const productionOrder: CreateProductionOrderModel = {
+        orderNumber: Number(number),
+        internalNumber: Number(code),
+        matrixCode: matrix,
+        amountOfPieces: Number(amount),
+        observations: description
+      };
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }
+      };
+      axios
+        .post('http://localhost:8080/productionOrder', productionOrder, config)
+        .then((res) => {
+          toast.success("Orden de produccion ingresada")
+          navigate('/')
+        })
+        .catch(() => {
+          toast.error("Hubo un problema generando la orden de produccion")
+        });
+    } else {
+      toast.error("Por favor completar todos los campos requeridos")
+    }
   }
 
   return (
@@ -47,6 +61,7 @@ export const CreateProductionOrder = () => {
           variant="outlined"
           value={number}
           onChange={(e) => setNumber(e.target.value)}
+          required={true}
         />
         <Select
           className="selectGD"
@@ -56,6 +71,7 @@ export const CreateProductionOrder = () => {
           onChange={(e) => {
             setCode(e.target.value);
           }}
+          required={true}
         >
           <MenuItem key={'202'} value={'202'}>
             202 - Tuerca
@@ -73,6 +89,7 @@ export const CreateProductionOrder = () => {
           variant="outlined"
           value={matrix}
           onChange={(e) => setMatrix(e.target.value)}
+          required={true}
         />
         <TextField
           id="outlined-basic"
@@ -80,6 +97,7 @@ export const CreateProductionOrder = () => {
           variant="outlined"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
+          required={true}
         />
         <textarea
           placeholder="Observaciones"

@@ -7,7 +7,6 @@ import {ActiveProcessListItem} from "../../components/ActiveProcessListItem";
 import {StoredListItem} from "../../components/StoredListItem";
 import {CheckCircleOutlineOutlined, PendingActionsOutlined, SyncOutlined} from "@mui/icons-material";
 import {Control} from "../../models/Control";
-import {Check} from "../../models/Check";
 import {Machine} from "../../models/Machine";
 
 export const DetailProductionOrder = () => {
@@ -45,8 +44,8 @@ export const DetailProductionOrder = () => {
           id: 3,
           name: "Prensa"
         },
-        start: new Date(),
-        end: new Date()
+        startTime: new Date(),
+        endTime: new Date()
       }],
       amountOfDust: 1.5,
       state: 4
@@ -67,7 +66,7 @@ export const DetailProductionOrder = () => {
     }
     const control1 = {
       id: 0,
-      checks: [check1, check2],
+      items: [check1, check2],
       scrap: 5,
       machine: {
         id: 0,
@@ -91,7 +90,7 @@ export const DetailProductionOrder = () => {
     }
     const control2 = {
       id: 0,
-      checks: [check3, check4],
+      items: [check3, check4],
       scrap: 2,
       machine: {
         id: 0,
@@ -129,7 +128,11 @@ export const DetailProductionOrder = () => {
             <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/finalize')}>
               <p>Finalizar Proceso</p>
             </Button>
-            : <></>
+            : (order.state === 0 ?
+              <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/start')}>
+                <p>Comenzar Proceso</p>
+              </Button>
+            : <></>)
           }
         </div>
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%'}} >

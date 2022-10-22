@@ -1,0 +1,22 @@
+.descriptionField {
+    resize: none;
+    border-radius: 10px;
+    overflow: auto;
+    margin-bottom: 30px;
+    background-color: #f2f2f2;
+    color: #737374;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    max-width: 110%;
+    height: 170px;
+}
+
+.descriptionField:focus {
+    outline: none;
+}
+
+.descriptionField::placeholder {
+    color: #b3b3b3;
+}

@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import React, {useEffect, useState} from "react";
-import {Accordion, AccordionDetails, AccordionSummary, Button, Checkbox, Stack, Typography} from "@mui/material";
+import {Accordion, AccordionDetails, AccordionSummary, Button, Checkbox, Stack, TextField, Typography} from "@mui/material";
 import './ProductionOrder.css'
 import {ProductionOrder} from "../../models/ProductionOrder";
 import {ActiveProcessListItem} from "../../components/ActiveProcessListItem";
@@ -11,7 +11,7 @@ import {Machine} from "../../models/Machine";
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-export const ChecklistProductionOrder = () => {
+export const CreateChecklist = () => {
   const navigate = useNavigate();
   const initial = {
     id: 0,
@@ -39,6 +39,7 @@ export const ChecklistProductionOrder = () => {
   }
 
   const [control, setControl] = useState<Control>(initial);
+  const [scrap, setScrap] = useState('');
   const [expanded, setExpanded] = React.useState<string | false>(false);
   const { id } = useParams()
 
@@ -46,6 +47,37 @@ export const ChecklistProductionOrder = () => {
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
     };
+
+  const validateAll = () => {
+    for(let item of control.items) {
+      const checkbox = document.getElementById(String(item.id)) as HTMLInputElement | null;
+      if(checkbox != null && checkbox.checked == false) return false;
+    }
+    return scrap !== '';
+  }
+
+
+  const handleRequest = () => {
+    if(validateAll()) {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }
+      };
+      axios
+        .post('http://localhost:8080/control/' + id, Number(scrap), config)
+        .then((res) => {
+          toast.success("Se guardó correctamente el control")
+          navigate(-1)
+        })
+        .catch(() => {
+          toast.error("Hubo un problema guardando el control")
+        });
+    } else {
+      toast.error("Por favor completar todos los campos requeridos")
+    }
+  }
 
   useEffect(() => {
     axios
@@ -77,7 +109,7 @@ export const ChecklistProductionOrder = () => {
                 </AccordionSummary>
                 <AccordionDetails>
                   <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%' }}>
-                    <Checkbox disabled checked />
+                    <Checkbox id={String(item.id)} />
                     <h3> {item.description} </h3>
                   </div>
                 </AccordionDetails>
@@ -86,10 +118,22 @@ export const ChecklistProductionOrder = () => {
           })}
         </div>
 
-        <h2 style={{ marginTop: '2%', textAlign: 'center' }}> { control.scrap + " piezas fueron a scrap" } </h2>
-        <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate(-1)}>
-          <p>Volver</p>
-        </Button>
+        <TextField
+          id="outlined-basic"
+          label="Piezas en scrap"
+          variant="outlined"
+          value={scrap}
+          onChange={(e) => setScrap(e.target.value)}
+          required={true}
+        />
+        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
+          <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate(-1)}>
+            <p>Volver</p>
+          </Button>
+          <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => handleRequest()}>
+            <p>Guardar</p>
+          </Button>
+        </div>
       </Stack>
     </div>
   );

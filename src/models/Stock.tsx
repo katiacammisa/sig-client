@@ -1,5 +1,7 @@
 export interface StockModel {
-  amountTuercas: number;
-  amountPiston: number;
-  amountGuia: number;
+  amountOfDust: number;
+  amountOfTuerca: number;
+  amountOfPiston: number;
+  amountOfGuia: number;
+  localDate: Date;
 }

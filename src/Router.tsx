@@ -9,6 +9,7 @@ import {Stock} from "./pages/stock/Stock";
 import {ActiveProductionOrder} from "./pages/productionOrder/ActiveProductionOrder";
 import {DetailProductionOrder} from "./pages/productionOrder/DetailProductionOrder";
 import {ChecklistProductionOrder} from "./pages/productionOrder/ChecklistProductionOrder";
+import { CreateChecklist } from './pages/productionOrder/CreateChecklist';
 
 const Router = () => {
   return (
@@ -18,8 +19,9 @@ const Router = () => {
         <Route path={'/dust/enter'} element={<EnterDust />} />
         <Route path={'/storedItems'} element={<StoredItems />} />
         <Route path={'/activeProductionOrders'} element={<ActiveProductionOrder />} />
-        <Route path={'/checklist'} element={<ChecklistProductionOrder />} />
-        <Route path={'/details'} element={<DetailProductionOrder />} />
+        <Route path={'/checklist/:id'} element={<ChecklistProductionOrder />} />
+        <Route path={'/details/:id'} element={<DetailProductionOrder />} />
+        <Route path={'/createChecklist/:id'} element={<CreateChecklist />} />
         <Route path={'/stock'} element={<Stock />} />
         <Route path={'/indicators'} element={<Home />} />
         <Route path={'/'} element={<Home />} />

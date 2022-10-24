@@ -38,7 +38,7 @@ export const ActiveProductionOrder = () => {
       <Stack spacing={5} style={{ width: '20%', marginTop: '3%' }}>
         {orderList.map((element) => {
           return (
-            <ActiveProcessListItem onClick={() => navigate('/details')} order={element}/>
+            <ActiveProcessListItem onClick={() => navigate('/details/' + element.id)} order={element}/>
           );
         })}
         <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate('/')}>

@@ -9,4 +9,5 @@ export interface Control {
   machine: Machine;
   localDate: Date;
   productionOrder: ProductionOrder;
+  state: string;
 }

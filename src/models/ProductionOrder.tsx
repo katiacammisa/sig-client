@@ -11,7 +11,7 @@ export interface ProductionOrder {
   finished: boolean;
   productionTime: ProductionTime[];
   amountOfDust: number;
-  state: number;
+  state: string;
 }
 
 export interface CreateProductionOrderModel {

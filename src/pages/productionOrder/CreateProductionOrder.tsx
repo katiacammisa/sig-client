@@ -36,7 +36,7 @@ export const CreateProductionOrder = () => {
         }
       };
       axios
-        .post('http://localhost:8080/productionOrder', productionOrder, config)
+        .post('https://sig-api-austral.herokuapp.com/productionOrder', productionOrder, config)
         .then((res) => {
           toast.success("Orden de produccion ingresada")
           navigate('/')

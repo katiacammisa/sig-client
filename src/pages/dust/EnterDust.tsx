@@ -18,7 +18,7 @@ export const EnterDust = () => {
         }
       };
       axios
-        .post('http://localhost:8080/stock/dust', Number(amount), config)
+        .post('https://sig-api-austral.herokuapp.com/stock/dust', Number(amount), config)
         .then((res) => {
           toast.success("Polvo ingresado")
           navigate('/')

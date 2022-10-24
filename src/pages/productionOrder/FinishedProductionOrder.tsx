@@ -21,7 +21,7 @@ export const FinishedProductionOrder = () => {
       }
     };
     axios
-      .get('http://localhost:8080/productionOrder/finished', config)
+      .get('https://sig-api-austral.herokuapp.com/productionOrder/finished', config)
       .then((res) => {
         setOrderList(res.data)
       })

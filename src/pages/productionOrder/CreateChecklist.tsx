@@ -66,7 +66,7 @@ export const CreateChecklist = () => {
         }
       };
       axios
-        .post('http://localhost:8080/controls/' + id, Number(scrap), config)
+        .post('https://sig-api-austral.herokuapp.com/controls/' + id, Number(scrap), config)
         .then((res) => {
           toast.success("Se guardó correctamente el control")
           navigate(-1)
@@ -81,7 +81,7 @@ export const CreateChecklist = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8080/controls/' + id, {})
+      .get('https://sig-api-austral.herokuapp.com/controls/' + id, {})
       .then((res) => {
         setControl(res.data)
       })

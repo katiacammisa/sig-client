@@ -49,7 +49,7 @@ export const ChecklistProductionOrder = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8080/controls/' + id, {})
+      .get('https://sig-api-austral.herokuapp.com/controls/' + id, {})
       .then((res) => {
         setControl(res.data)
       })

@@ -21,7 +21,7 @@ export const ActiveProductionOrder = () => {
       }
     };
     axios
-      .get('http://localhost:8080/productionOrder/active', config)
+      .get('https://sig-api-austral.herokuapp.com/productionOrder/active', config)
       .then((res) => {
         setOrderList(res.data)
       })

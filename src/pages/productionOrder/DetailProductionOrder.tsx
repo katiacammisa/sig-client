@@ -68,7 +68,7 @@ export const DetailProductionOrder = () => {
       }
     };
     axios
-      .post('http://localhost:8080/productionOrder/advance/' + id, {}, config)
+      .post('https://sig-api-austral.herokuapp.com/productionOrder/advance/' + id, {}, config)
       .then((res) => {
         setOrder(res.data)
         toast.success("Proceso avanzado")
@@ -86,7 +86,7 @@ export const DetailProductionOrder = () => {
       }
     };
     axios
-      .post('http://localhost:8080/productionOrder/' + id, {}, config)
+      .post('https://sig-api-austral.herokuapp.com/productionOrder/' + id, {}, config)
       .then((res) => {
         setOrder(res.data)
         toast.success("Proceso finalizado correctamente")
@@ -98,7 +98,7 @@ export const DetailProductionOrder = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8080/productionOrder/' + id, {})
+      .get('https://sig-api-austral.herokuapp.com/productionOrder/' + id, {})
       .then((res) => {
         console.log(res.data)
         setOrder(res.data)
@@ -107,7 +107,7 @@ export const DetailProductionOrder = () => {
         toast.error("Hubo un problema obteniendo los productos almacenados")
       });
     axios
-      .get('http://localhost:8080/productionOrder/control/' + id, {})
+      .get('https://sig-api-austral.herokuapp.com/productionOrder/control/' + id, {})
       .then((res) => {
         setControlList(res.data)
       })

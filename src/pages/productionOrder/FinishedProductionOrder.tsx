@@ -8,7 +8,7 @@ import {StoredListItem} from "../../components/StoredListItem";
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-export const ActiveProductionOrder = () => {
+export const FinishedProductionOrder = () => {
   const navigate = useNavigate();
 
   const [orderList, setOrderList] = useState<ProductionOrder[]>([]);
@@ -21,12 +21,12 @@ export const ActiveProductionOrder = () => {
       }
     };
     axios
-      .get('http://localhost:8080/productionOrder/active', config)
+      .get('http://localhost:8080/productionOrder/finished', config)
       .then((res) => {
         setOrderList(res.data)
       })
       .catch(() => {
-        toast.error("Hubo un problema obteniendo las ordenes activas")
+        toast.error("Hubo un problema obteniendo las ordenes terminadas")
       });
   }, [])
 
@@ -34,7 +34,7 @@ export const ActiveProductionOrder = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <h1 style={{ marginTop: '5%' }}>Ver procesos activos</h1>
+      <h1 style={{ marginTop: '5%' }}>Ver procesos finalizados</h1>
       <Stack spacing={5} style={{ width: '20%', marginTop: '3%' }}>
         {orderList.map((element) => {
           return (

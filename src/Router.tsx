@@ -10,6 +10,7 @@ import {ActiveProductionOrder} from "./pages/productionOrder/ActiveProductionOrd
 import {DetailProductionOrder} from "./pages/productionOrder/DetailProductionOrder";
 import {ChecklistProductionOrder} from "./pages/productionOrder/ChecklistProductionOrder";
 import { CreateChecklist } from './pages/productionOrder/CreateChecklist';
+import { FinishedProductionOrder } from './pages/productionOrder/FinishedProductionOrder';
 
 const Router = () => {
   return (
@@ -19,6 +20,7 @@ const Router = () => {
         <Route path={'/dust/enter'} element={<EnterDust />} />
         <Route path={'/storedItems'} element={<StoredItems />} />
         <Route path={'/activeProductionOrders'} element={<ActiveProductionOrder />} />
+        <Route path={'/endedProductionOrders'} element={<FinishedProductionOrder />} />
         <Route path={'/checklist/:id'} element={<ChecklistProductionOrder />} />
         <Route path={'/details/:id'} element={<DetailProductionOrder />} />
         <Route path={'/createChecklist/:id'} element={<CreateChecklist />} />

@@ -14,12 +14,11 @@ export const CreateProductionOrder = () => {
 
   const [number, setNumber] = useState('');
   const [code, setCode] = useState('202');
-  const [matrix, setMatrix] = useState('');
   const [amount, setAmount] = useState('');
   const [description, setDescription] = useState('');
   
   const validateAllFields = () => {
-    return number !== '' && code !== '' && matrix !== '' && amount !== '';
+    return number !== '' && code !== '' && amount !== '';
   }
 
   const handleRequest = () => {
@@ -27,7 +26,6 @@ export const CreateProductionOrder = () => {
       const productionOrder: CreateProductionOrderModel = {
         orderNumber: Number(number),
         internalNumber: Number(code),
-        matrixCode: matrix,
         amountOfPieces: Number(amount),
         observations: description
       };
@@ -83,14 +81,6 @@ export const CreateProductionOrder = () => {
             204 - Guía
           </MenuItem>
         </Select>
-        <TextField
-          id="outlined-basic"
-          label="Codigo de Matriz"
-          variant="outlined"
-          value={matrix}
-          onChange={(e) => setMatrix(e.target.value)}
-          required={true}
-        />
         <TextField
           id="outlined-basic"
           label="Cantidad de piezas"

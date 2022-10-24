@@ -10,14 +10,13 @@ export interface ProductionOrder {
   observations: string;
   finished: boolean;
   productionTime: ProductionTime[];
-  amountOfDust: number;
+  amountOfDustUsed: number;
   state: string;
 }
 
 export interface CreateProductionOrderModel {
   orderNumber: number;
   internalNumber: number;
-  matrixCode: string;
   amountOfPieces: number;
   observations: string;
 }

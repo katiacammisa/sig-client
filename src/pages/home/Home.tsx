@@ -20,6 +20,9 @@ const Home = () => {
         <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate('/activeProductionOrders')}>
           <p>Ver procesos activos</p>
         </Button>
+        <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate('/endedProductionOrders')}>
+          <p>Ver procesos finalizados</p>
+        </Button>
         <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate('/stock')}>
           <p>Ver stock</p>
         </Button>

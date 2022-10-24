@@ -32,7 +32,7 @@ export const CreateChecklist = () => {
       observations: "",
       finished: false,
       productionTime: [],
-      amountOfDust: 0,
+      amountOfDustUsed: 0,
       state: ""
     },
     state: "pending"
@@ -66,7 +66,7 @@ export const CreateChecklist = () => {
         }
       };
       axios
-        .post('http://localhost:8080/control/' + id, Number(scrap), config)
+        .post('http://localhost:8080/controls/' + id, Number(scrap), config)
         .then((res) => {
           toast.success("Se guardó correctamente el control")
           navigate(-1)

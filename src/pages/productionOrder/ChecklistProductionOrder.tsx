@@ -32,7 +32,7 @@ export const ChecklistProductionOrder = () => {
       observations: "",
       finished: false,
       productionTime: [],
-      amountOfDust: 0,
+      amountOfDustUsed: 0,
       state: ""
     },
     state: "pending"

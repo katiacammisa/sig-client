@@ -14,7 +14,7 @@ export const StoredItems = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8080/storage', {})
+      .get('https://sig-api-austral.herokuapp.com/storage', {})
       .then((res) => {
         setList(res.data)
       })

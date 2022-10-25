@@ -13,7 +13,7 @@ export const Stock = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8080/stock', {})
+      .get('https://sig-api-austral.herokuapp.com/stock', {})
       .then((res) => {
         console.log(res)
         setStock(res.data)

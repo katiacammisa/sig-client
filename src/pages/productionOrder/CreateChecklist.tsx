@@ -41,7 +41,7 @@ export const CreateChecklist = () => {
   }
 
   const [control, setControl] = useState<Control>(initial);
-  const [scrap, setScrap] = useState('');
+  const [scrap, setScrap] = useState('0');
   const [expanded, setExpanded] = React.useState<string | false>(false);
   const { id } = useParams()
 
@@ -126,7 +126,6 @@ export const CreateChecklist = () => {
           variant="outlined"
           value={scrap}
           onChange={(e) => setScrap(e.target.value)}
-          required={true}
         />
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
           <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate(-1)}>

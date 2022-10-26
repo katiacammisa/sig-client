@@ -11,6 +11,7 @@ import {Machine} from "../../models/Machine";
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { FormDialog } from '../../components/FormDialog';
+import { baseurl } from '../../common/http';
 
 export const DetailProductionOrder = () => {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ export const DetailProductionOrder = () => {
     internalNumber: 0,
     matrixCode: "",
     amountOfPieces: 0,
+    finalAmountOfPieces: 0,
     date: new Date(),
     observations: "",
     finished: false,
@@ -68,7 +70,7 @@ export const DetailProductionOrder = () => {
       }
     };
     axios
-      .post('https://sig-api-austral.herokuapp.com/productionOrder/advance/' + id, {}, config)
+      .post(baseurl + '/productionOrder/advance/' + id, {}, config)
       .then((res) => {
         setOrder(res.data)
         toast.success("Proceso avanzado")
@@ -86,7 +88,7 @@ export const DetailProductionOrder = () => {
       }
     };
     axios
-      .post('https://sig-api-austral.herokuapp.com/productionOrder/' + id, {}, config)
+      .post(baseurl + '/productionOrder/' + id, {}, config)
       .then((res) => {
         setOrder(res.data)
         toast.success("Proceso finalizado correctamente")
@@ -98,7 +100,7 @@ export const DetailProductionOrder = () => {
 
   useEffect(() => {
     axios
-      .get('https://sig-api-austral.herokuapp.com/productionOrder/' + id, {})
+      .get(baseurl + '/productionOrder/' + id, {})
       .then((res) => {
         console.log(res.data)
         setOrder(res.data)
@@ -107,7 +109,7 @@ export const DetailProductionOrder = () => {
         toast.error("Hubo un problema obteniendo los productos almacenados")
       });
     axios
-      .get('https://sig-api-austral.herokuapp.com/productionOrder/control/' + id, {})
+      .get(baseurl + '/productionOrder/control/' + id, {})
       .then((res) => {
         setControlList(res.data)
       })

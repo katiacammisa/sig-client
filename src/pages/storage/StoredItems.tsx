@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import {Button, Stack} from "@mui/material";
 import {Stored} from "../../models/Stored";
 import {StoredListItem} from "../../components/StoredListItem";
-import {get} from "../../common/http";
+import {baseurl, get} from "../../common/http";
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
@@ -14,7 +14,7 @@ export const StoredItems = () => {
 
   useEffect(() => {
     axios
-      .get('https://sig-api-austral.herokuapp.com/storage', {})
+      .get(baseurl + '/storage', {})
       .then((res) => {
         setList(res.data)
       })

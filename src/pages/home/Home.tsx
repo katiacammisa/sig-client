@@ -6,8 +6,8 @@ const Home = () => {
   const navigate = useNavigate();
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <h1 style={{ marginTop: '5%' }}>Gestion de Inventarios</h1>
-      <Stack spacing={5} style={{ width: '20%', marginTop: '3%' }}>
+      <h1 style={{ marginTop: '2.5%' }}>Gestion de Inventarios</h1>
+      <Stack spacing={5} style={{ width: '20%', marginTop: '2%' }}>
         <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate('/productionOrder/creation')}>
           <p>Ingresar orden de produccion</p>
         </Button>
@@ -28,6 +28,9 @@ const Home = () => {
         </Button>
         <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate('/indicators')}>
           <p>Ver indicadores</p>
+        </Button>
+        <Button variant="contained" style={{ backgroundColor: '#000000', marginBottom: '10px' }} onClick={() => navigate('/failures')}>
+          <p>Fallos de máquina</p>
         </Button>
       </Stack>
     </div>

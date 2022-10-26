@@ -10,6 +10,7 @@ import {Control} from "../../models/Control";
 import {Machine} from "../../models/Machine";
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { baseurl } from '../../common/http';
 
 export const ChecklistProductionOrder = () => {
   const navigate = useNavigate();
@@ -28,6 +29,7 @@ export const ChecklistProductionOrder = () => {
       internalNumber: 0,
       matrixCode: "",
       amountOfPieces: 0,
+      finalAmountOfPieces: 0,
       date: new Date(),
       observations: "",
       finished: false,
@@ -49,7 +51,7 @@ export const ChecklistProductionOrder = () => {
 
   useEffect(() => {
     axios
-      .get('https://sig-api-austral.herokuapp.com/controls/' + id, {})
+      .get(baseurl + '/controls/' + id, {})
       .then((res) => {
         setControl(res.data)
       })

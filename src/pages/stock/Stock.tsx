@@ -5,15 +5,16 @@ import {StockModel} from "../../models/Stock";
 import {StockListItem} from "../../components/StockListItem";
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { baseurl } from '../../common/http';
 
 export const Stock = () => {
   const navigate = useNavigate();
 
-  const [stock, setStock] = useState<StockModel>({amountOfDust: 0, amountOfTuerca: 0, amountOfPiston: 0, amountOfGuia: 0, localDate: new Date()});
+  const [stock, setStock] = useState<StockModel>({amountOfDust: 0, amountOfDustRecycled: 0, amountOfTuerca: 0, amountOfPiston: 0, amountOfGuia: 0, localDate: new Date()});
 
   useEffect(() => {
     axios
-      .get('https://sig-api-austral.herokuapp.com/stock', {})
+      .get(baseurl + '/stock', {})
       .then((res) => {
         console.log(res)
         setStock(res.data)

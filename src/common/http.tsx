@@ -1,4 +1,5 @@
-export const baseurl = "http://localhost:8080/";
+// export const baseurl = "http://localhost:8080";
+export const baseurl = "https://sig-api-austral.herokuapp.com";
 
 type Config = {
   headers?: Object | null,

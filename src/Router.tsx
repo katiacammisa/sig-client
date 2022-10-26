@@ -11,6 +11,9 @@ import {DetailProductionOrder} from "./pages/productionOrder/DetailProductionOrd
 import {ChecklistProductionOrder} from "./pages/productionOrder/ChecklistProductionOrder";
 import { CreateChecklist } from './pages/productionOrder/CreateChecklist';
 import { FinishedProductionOrder } from './pages/productionOrder/FinishedProductionOrder';
+import FailureHome from './pages/failure/FailureHome';
+import { CreateFailure } from './pages/failure/CreateFailure';
+import { ViewFailures } from './pages/failure/ViewFailures';
 
 const Router = () => {
   return (
@@ -26,6 +29,9 @@ const Router = () => {
         <Route path={'/createChecklist/:id'} element={<CreateChecklist />} />
         <Route path={'/stock'} element={<Stock />} />
         <Route path={'/indicators'} element={<Home />} />
+        <Route path={'/failures/creation'} element={<CreateFailure />} />
+        <Route path={'/failures/view'} element={<ViewFailures />} />
+        <Route path={'/failures'} element={<FailureHome />} />
         <Route path={'/'} element={<Home />} />
       </Routes>
     </BrowserRouter>

@@ -6,7 +6,7 @@ import axios from "axios";
 import {ErrorToast, SuccessToast} from "../../common/Toasts";
 import {CreateProductionOrderModel} from "../../models/ProductionOrder";
 import {authRequestInterceptor} from "../../common/axios";
-import {post} from "../../common/http";
+import {baseurl, post} from "../../common/http";
 import toast from 'react-hot-toast';
 
 export const CreateProductionOrder = () => {
@@ -36,7 +36,7 @@ export const CreateProductionOrder = () => {
         }
       };
       axios
-        .post('https://sig-api-austral.herokuapp.com/productionOrder', productionOrder, config)
+        .post(baseurl + '/productionOrder', productionOrder, config)
         .then((res) => {
           toast.success("Orden de produccion ingresada")
           navigate('/')

@@ -7,6 +7,7 @@ import {ActiveProcessListItem} from "../../components/ActiveProcessListItem";
 import {StoredListItem} from "../../components/StoredListItem";
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { baseurl } from '../../common/http';
 
 export const ActiveProductionOrder = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ export const ActiveProductionOrder = () => {
       }
     };
     axios
-      .get('https://sig-api-austral.herokuapp.com/productionOrder/active', config)
+      .get(baseurl + '/productionOrder/active', config)
       .then((res) => {
         setOrderList(res.data)
       })

@@ -8,6 +8,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { baseurl } from '../common/http';
 
 export const FormDialog = (props: {id: string | undefined, setOrder: (arg0: any) => void}) => {
   const [open, setOpen] = React.useState(false);
@@ -30,7 +31,7 @@ export const FormDialog = (props: {id: string | undefined, setOrder: (arg0: any)
         }
       };
       axios
-        .post('https://sig-api-austral.herokuapp.com/productionOrder/dust/' + props.id, Number(amount), config)
+        .post(baseurl + '/productionOrder/dust/' + props.id, Number(amount), config)
         .then((res) => {
           props.setOrder(res.data)
           toast.success("Cantidad de polvo utilizada guardada")

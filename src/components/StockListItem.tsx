@@ -9,6 +9,10 @@ export const StockListItem = (props: { stock: StockModel }) => {
         <h3 style={{ fontWeight: "normal", textAlign: "center" }}> {props.stock.amountOfDust + " toneladas"} </h3>
       </div>
       <div>
+        <h2 style={{ textAlign: "center" }}> Polvo Reciclado </h2>
+        <h3 style={{ fontWeight: "normal", textAlign: "center" }}> {props.stock.amountOfDustRecycled + " toneladas"} </h3>
+      </div>
+      <div>
         <h2 style={{ textAlign: "center" }}> Tuercas </h2>
         <h3 style={{ fontWeight: "normal", textAlign: "center" }}> {props.stock.amountOfTuerca + " unidades"} </h3>
       </div>

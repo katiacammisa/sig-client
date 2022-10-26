@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import {Button, Stack, TextField} from "@mui/material";
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { baseurl } from '../../common/http';
 
 export const EnterDust = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ export const EnterDust = () => {
         }
       };
       axios
-        .post('https://sig-api-austral.herokuapp.com/stock/dust', Number(amount), config)
+        .post(baseurl + '/stock/dust', Number(amount), config)
         .then((res) => {
           toast.success("Polvo ingresado")
           navigate('/')

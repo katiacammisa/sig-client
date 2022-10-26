@@ -6,6 +6,7 @@ export interface ProductionOrder {
   internalNumber: number;
   matrixCode: string;
   amountOfPieces: number;
+  finalAmountOfPieces: number;
   date: Date;
   observations: string;
   finished: boolean;

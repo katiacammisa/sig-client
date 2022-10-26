@@ -10,6 +10,7 @@ import {Control} from "../../models/Control";
 import {Machine} from "../../models/Machine";
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { baseurl } from '../../common/http';
 
 export const CreateChecklist = () => {
   const navigate = useNavigate();
@@ -28,6 +29,7 @@ export const CreateChecklist = () => {
       internalNumber: 0,
       matrixCode: "",
       amountOfPieces: 0,
+      finalAmountOfPieces: 0,
       date: new Date(),
       observations: "",
       finished: false,
@@ -66,7 +68,7 @@ export const CreateChecklist = () => {
         }
       };
       axios
-        .post('https://sig-api-austral.herokuapp.com/controls/' + id, Number(scrap), config)
+        .post(baseurl + '/controls/' + id, Number(scrap), config)
         .then((res) => {
           toast.success("Se guardó correctamente el control")
           navigate(-1)
@@ -81,7 +83,7 @@ export const CreateChecklist = () => {
 
   useEffect(() => {
     axios
-      .get('https://sig-api-austral.herokuapp.com/controls/' + id, {})
+      .get(baseurl + '/controls/' + id, {})
       .then((res) => {
         setControl(res.data)
       })

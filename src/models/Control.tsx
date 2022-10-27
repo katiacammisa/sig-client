@@ -5,7 +5,6 @@ import {ProductionOrder} from "./ProductionOrder";
 export interface Control {
   id: number;
   items: Item[];
-  scrap: number;
   machine: Machine;
   localDate: Date;
   productionOrder: ProductionOrder;

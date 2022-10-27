@@ -17,7 +17,6 @@ export const ChecklistProductionOrder = () => {
   const initial = {
     id: 0,
     items: [],
-    scrap: 0,
     machine: {
       id: 0,
       name: ""
@@ -30,6 +29,7 @@ export const ChecklistProductionOrder = () => {
       matrixCode: "",
       amountOfPieces: 0,
       finalAmountOfPieces: 0,
+      missingPieces: 0,
       date: new Date(),
       observations: "",
       finished: false,
@@ -88,7 +88,6 @@ export const ChecklistProductionOrder = () => {
           })}
         </div>
 
-        <h2 style={{ marginTop: '2%', textAlign: 'center' }}> { control.scrap + " piezas fueron a scrap" } </h2>
         <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate(-1)}>
           <p>Volver</p>
         </Button>

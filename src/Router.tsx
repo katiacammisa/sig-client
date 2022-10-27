@@ -14,6 +14,8 @@ import { FinishedProductionOrder } from './pages/productionOrder/FinishedProduct
 import FailureHome from './pages/failure/FailureHome';
 import { CreateFailure } from './pages/failure/CreateFailure';
 import { ViewFailures } from './pages/failure/ViewFailures';
+import { CreateTurn } from './pages/turn/CreateTurn';
+import { TurnList } from './pages/turn/TurnList';
 
 const Router = () => {
   return (
@@ -32,6 +34,8 @@ const Router = () => {
         <Route path={'/failures/creation'} element={<CreateFailure />} />
         <Route path={'/failures/view'} element={<ViewFailures />} />
         <Route path={'/failures'} element={<FailureHome />} />
+        <Route path={'/createTurn/:machine/:id'} element={<CreateTurn />} />
+        <Route path={'/turns/:machine/:id'} element={<TurnList />} />
         <Route path={'/'} element={<Home />} />
       </Routes>
     </BrowserRouter>

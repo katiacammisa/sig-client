@@ -17,7 +17,6 @@ export const CreateChecklist = () => {
   const initial = {
     id: 0,
     items: [],
-    scrap: 0,
     machine: {
       id: 0,
       name: ""
@@ -30,6 +29,7 @@ export const CreateChecklist = () => {
       matrixCode: "",
       amountOfPieces: 0,
       finalAmountOfPieces: 0,
+      missingPieces: 0,
       date: new Date(),
       observations: "",
       finished: false,
@@ -41,7 +41,6 @@ export const CreateChecklist = () => {
   }
 
   const [control, setControl] = useState<Control>(initial);
-  const [scrap, setScrap] = useState('0');
   const [expanded, setExpanded] = React.useState<string | false>(false);
   const { id } = useParams()
 
@@ -55,7 +54,7 @@ export const CreateChecklist = () => {
       const checkbox = document.getElementById(String(item.id)) as HTMLInputElement | null;
       if(checkbox != null && checkbox.checked == false) return false;
     }
-    return scrap !== '';
+    return true;
   }
 
 
@@ -68,7 +67,7 @@ export const CreateChecklist = () => {
         }
       };
       axios
-        .post(baseurl + '/controls/' + id, Number(scrap), config)
+        .post(baseurl + '/controls/' + id, true, config)
         .then((res) => {
           toast.success("Se guardó correctamente el control")
           navigate(-1)
@@ -119,14 +118,6 @@ export const CreateChecklist = () => {
             );
           })}
         </div>
-
-        <TextField
-          id="outlined-basic"
-          label="Piezas en scrap"
-          variant="outlined"
-          value={scrap}
-          onChange={(e) => setScrap(e.target.value)}
-        />
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
           <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate(-1)}>
             <p>Volver</p>

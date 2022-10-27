@@ -7,6 +7,7 @@ export interface ProductionOrder {
   matrixCode: string;
   amountOfPieces: number;
   finalAmountOfPieces: number;
+  missingPieces: number;
   date: Date;
   observations: string;
   finished: boolean;

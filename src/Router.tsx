@@ -22,6 +22,12 @@ import { CreateControlSinterizado } from './pages/control/CreateControlSinteriza
 import { CreateControlRoscado } from './pages/control/CreateControlRoscado';
 import { CreateControlTorno } from './pages/control/CreateControlTorno';
 import { CreateControlPavonado } from './pages/control/CreateControlPavonado';
+import { ViewControlPrensa } from './pages/control/ViewControlPrensa';
+import { ViewControlSinterizado } from './pages/control/ViewControlSinterizado';
+import { ViewControlRoscado } from './pages/control/ViewControlRoscado';
+import { ViewControlTorno } from './pages/control/ViewControlTorno';
+import { ViewControlPavonado } from './pages/control/ViewControlPavonado';
+
 
 const Router = () => {
   return (
@@ -37,17 +43,27 @@ const Router = () => {
         <Route path={'/createChecklist/:id'} element={<CreateChecklist />} />
         <Route path={'/stock'} element={<Stock />} />
         <Route path={'/indicators'} element={<Home />} />
+
         <Route path={'/failures/creation'} element={<CreateFailure />} />
         <Route path={'/failures/view'} element={<ViewFailures />} />
         <Route path={'/failures'} element={<FailureHome />} />
+
         <Route path={'/createTurn/:machine/:id'} element={<CreateTurn />} />
         <Route path={'/turns/:machine/:id'} element={<TurnList />} />
+
         <Route path={'/controlTurns/:machine/:id'} element={<ViewTurnsControl />} />
         <Route path={'/controlPrensa/:turnId'} element={<CreateControlPrensa />} />
         <Route path={'/controlSinterizado/:turnId'} element={<CreateControlSinterizado />} />
         <Route path={'/controlRoscadora/:turnId'} element={<CreateControlRoscado />} />
         <Route path={'/controlTorno/:turnId'} element={<CreateControlTorno />} />
         <Route path={'/controlPavonado/:turnId'} element={<CreateControlPavonado />} />
+
+        <Route path={'/viewControlPrensa/:turnId'} element={<ViewControlPrensa />} />
+        <Route path={'/viewControlSinterizado/:turnId'} element={<ViewControlSinterizado />} />
+        <Route path={'/viewControlRoscadora/:turnId'} element={<ViewControlRoscado />} />
+        <Route path={'/viewControlTorno/:turnId'} element={<ViewControlTorno />} />
+        <Route path={'/viewControlPavonado/:turnId'} element={<ViewControlPavonado />} />
+
         <Route path={'/'} element={<Home />} />
       </Routes>
     </BrowserRouter>

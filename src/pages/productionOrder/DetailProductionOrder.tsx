@@ -218,12 +218,12 @@ export const DetailProductionOrder = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
       <h1 style={{ marginTop: '2%' }}>{"Ver detalle - OP#" + order.orderNumber}</h1>
-      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '30%', justifyContent: 'space-around' }}>
-        <h3 style={{ marginTop: '1%' }}>{order.amountOfPieces + " unidades de " + (order.internalNumber === 202 ? "tuercas" : (order.internalNumber === 293 ? "pistones" : "guias")) }</h3>
-        <h3 style={{ marginTop: '1%' }}>{"Código de matriz: " + order.matrixCode}</h3>
-
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', justifyContent: 'space-around', marginTop: '1%' }}>
+        <h3 style={{ marginTop: '0.2%' }}>{"Planificado: " + order.amountOfPieces + " unidades de " + (order.internalNumber === 202 ? "tuercas" : (order.internalNumber === 293 ? "pistones" : "guias")) }</h3>
+        <h3 style={{ marginTop: '0.2%' }}>{"Actual: " + order.finalAmountOfPieces + " unidades de " + (order.internalNumber === 202 ? "tuercas" : (order.internalNumber === 293 ? "pistones" : "guias")) }</h3>
+        <h3 style={{ marginTop: '0.2%' }}>{"Código de matriz: " + order.matrixCode}</h3>
       </div>
-      <Stack spacing={2} style={{ width: '40%', marginTop: '3%' }}>
+      <Stack spacing={2} style={{ width: '40%', marginTop: '1.5%' }}>
 
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%'}} >
           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%' }}>
@@ -290,7 +290,7 @@ export const DetailProductionOrder = () => {
             { states.indexOf(order.state) > 5 ? <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> }
             <h2 style={{ marginLeft: '10px' }}>Control Prensado</h2>
           </div>
-          { states.indexOf(order.state) > 5 ? <Button variant="contained" style={{ backgroundColor: '#e6e6e6', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Prensa')[0].id)}>
+          { states.indexOf(order.state) > 5 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Prensa/' + order.id)}>
             <p>Ver Control</p>
           </Button> : (states.indexOf(order.state) === 4 && order.amountOfDustUsed !== 0 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Prensa/' + order.id)}>
             <p>Generar Control</p>
@@ -302,10 +302,10 @@ export const DetailProductionOrder = () => {
             <h2 style={{ marginLeft: '10px' }}> Almacenado Prensado </h2>
           </div>
           { states.indexOf(order.state) === 6 ?
-            <Button variant="contained" style={{ backgroundColor: '#000000', width: '50%' }} onClick={() => handleAdvanceProcess()}>
+            <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => handleAdvanceProcess()}>
               <p>Comenzar Almacenado</p>
             </Button> : ( states.indexOf(order.state) === 7 ?
-              <Button variant="contained" style={{ backgroundColor: '#000000', width: '50%' }} onClick={() => handleAdvanceProcess()}>
+              <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => handleAdvanceProcess()}>
                 <p>Finalizar Almacenado</p>
               </Button>
               : <></> 
@@ -353,7 +353,7 @@ export const DetailProductionOrder = () => {
             { states.indexOf(order.state) > 13 ? <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> }
             <h2 style={{ marginLeft: '10px' }}>Control Sinterizado</h2>
           </div>
-          { states.indexOf(order.state) > 13 ? <Button variant="contained" style={{ backgroundColor: '#e6e6e6', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Sinterizado')[0].id)}>
+          { states.indexOf(order.state) > 13 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Sinterizado/' + order.id)}>
             <p>Ver Control</p>
           </Button> : (states.indexOf(order.state) === 12 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Sinterizado/' + order.id)}>
             <p>Generar Control</p>
@@ -365,10 +365,10 @@ export const DetailProductionOrder = () => {
             <h2 style={{ marginLeft: '10px' }}> Almacenado Sinterizado </h2>
           </div>
           { states.indexOf(order.state) === 14 ?
-            <Button variant="contained" style={{ backgroundColor: '#000000', width: '50%' }} onClick={() => handleAdvanceProcess()}>
+            <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => handleAdvanceProcess()}>
               <p>Comenzar Almacenado</p>
             </Button> : ( states.indexOf(order.state) === 15 ?
-                <Button variant="contained" style={{ backgroundColor: '#000000', width: '50%' }} onClick={() => handleAdvanceProcess()}>
+                <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => handleAdvanceProcess()}>
                   <p>Finalizar Almacenado</p>
                 </Button>
                 : <></>
@@ -420,7 +420,7 @@ export const DetailProductionOrder = () => {
               { states.indexOf(order.state) > 21 ? <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> }
               <h2 style={{ marginLeft: '10px' }}> Control Roscado </h2>
             </div>
-            { states.indexOf(order.state) > 21 ? <Button variant="contained" style={{ backgroundColor: '#e6e6e6', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Torno')[0].id)}>
+            { states.indexOf(order.state) > 21 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Roscadora/' + order.id)}>
               <p>Ver Control</p>
             </Button> : (states.indexOf(order.state) === 20 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Roscadora/' + order.id)}>
               <p>Generar control</p>
@@ -459,12 +459,12 @@ export const DetailProductionOrder = () => {
                   : <></>
               )
             }
+            { order.internalNumber === 293 && states.indexOf(order.state) > 25 ?
+              <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/turns/Torno/' + order.id)}>
+                <p>Ver Turnos</p>
+              </Button> : <></>
+            }
           </div> : <></>
-        }
-        { order.internalNumber === 293 && states.indexOf(order.state) > 25 ?
-          <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/turns/Torno/' + order.id)}>
-            <p>Ver Turnos</p>
-          </Button> : <></>
         }
         {order.internalNumber === 293 ?
           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%'}} >
@@ -472,7 +472,7 @@ export const DetailProductionOrder = () => {
               { states.indexOf(order.state) > 27 ? <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> }
               <h2 style={{ marginLeft: '10px' }}> Control Mecanizado </h2>
             </div>
-            { states.indexOf(order.state) > 27 ? <Button variant="contained" style={{ backgroundColor: '#e6e6e6', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Roscadora')[0].id)}>
+            { states.indexOf(order.state) > 27 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Torno/' + order.id)}>
               <p>Ver Control</p>
             </Button> : (states.indexOf(order.state) === 26 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Torno/' + order.id)}>
               <p>Generar control</p>
@@ -519,7 +519,7 @@ export const DetailProductionOrder = () => {
             { states.indexOf(order.state) > 33 ? <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> }
             <h2 style={{ marginLeft: '10px' }}>Control Pavonado</h2>
           </div>
-          { states.indexOf(order.state) > 33 ? <Button variant="contained" style={{ backgroundColor: '#e6e6e6', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Pavonado')[0].id)}>
+          { states.indexOf(order.state) > 33 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Pavonado/' + order.id)}>
             <p>Ver Control</p>
           </Button> : (states.indexOf(order.state) === 32 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Pavonado/' + order.id)}>
             <p>Generar Control</p>

@@ -1,12 +1,16 @@
-import {Button} from "@mui/material";
+import {Button, IconButton} from "@mui/material";
 import {Stored} from "../models/Stored";
 import {ProductionOrder} from "../models/ProductionOrder";
 import React, { MouseEventHandler } from "react";
 import { Turn } from "../models/Turn";
 import { CheckCircleOutlineOutlined } from "@mui/icons-material";
 import CancelIcon from '@mui/icons-material/Cancel';
+import { useNavigate } from "react-router-dom";
 
 export const TurnControlListItem = (props: { onClick: MouseEventHandler<HTMLButtonElement>; turn: Turn }) => {
+
+  const navigate = useNavigate();
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', justifyContent: 'space-between' }}>
       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'space-between' }}>
@@ -23,10 +27,11 @@ export const TurnControlListItem = (props: { onClick: MouseEventHandler<HTMLButt
       {!props.turn.done ? <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={props.onClick}>
         <p>Realizar Control</p>
       </Button> : (props.turn.passedControl ?
-          <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> :
-          <CancelIcon fontSize={"inherit"} style={{ fontSize: '60px' }} />
+          <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} onClick={() => navigate('/viewControl' + props.turn.machine.name + '/' + props.turn.id)} /> :
+          <IconButton>
+            <CancelIcon fontSize={"inherit"} style={{ fontSize: '60px' }} onClick={() => navigate('/viewControl' + props.turn.machine.name + '/' + props.turn.id)} />
+          </IconButton>
         )
-
       }
     </div>
   );

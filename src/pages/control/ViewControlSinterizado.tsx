@@ -1,0 +1,288 @@
+import { useNavigate, useParams } from 'react-router-dom';
+import React, {useEffect, useState} from "react";
+import {Accordion, AccordionDetails, AccordionSummary, Button, Checkbox, InputAdornment, Stack, TextField, Typography} from "@mui/material";
+import {ProductionOrder} from "../../models/ProductionOrder";
+import {ActiveProcessListItem} from "../../components/ActiveProcessListItem";
+import {StoredListItem} from "../../components/StoredListItem";
+import {CheckCircleOutlineOutlined, ExpandMore, PendingActionsOutlined, SyncOutlined} from "@mui/icons-material";
+import {Control} from "../../models/Control";
+import {Machine} from "../../models/Machine";
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import { baseurl } from '../../common/http';
+import { Turn } from '../../models/Turn';
+import { Quality } from '../../models/Quality';
+
+export const ViewControlSinterizado = () => {
+  const navigate = useNavigate();
+
+  const initial =  {
+    id: 0,
+    orderNumber: 0,
+    internalNumber: 0,
+    matrixCode: "",
+    amountOfPieces: 0,
+    finalAmountOfPieces: 0,
+    missingPieces: 0,
+    date: new Date(),
+    observations: "",
+    finished: false,
+    productionTime: [],
+    amountOfDustUsed: 0,
+    state: ""
+  }
+
+  const initialTurn = {
+    id: 0,
+    responsible: '',
+    pieces: 0,
+    machine: {
+      id: 0,
+      name: ''
+    },
+    localDate: new Date(),
+    productionOrder: initial,
+    turn: '',
+    passedControl: false,
+    done: false
+  }
+
+  const initialQuality = {
+    id: 0,
+    sample1: [],
+    sample2: [],
+    sample3: [],
+    sample4: [],
+    sample5: [],
+    turn: initialTurn
+  }
+
+  const [turn, setTurn] = useState<Turn>(initialTurn)
+  const [order, setOrder] = useState<ProductionOrder>(initial)
+  const [quality, setQuality] = useState<Quality>(initialQuality)
+  const [list, setList] = useState([])
+
+  const { turnId } = useParams()
+  const numbers = [0,1,2,3,4]
+
+  useEffect(() => {
+    axios
+      .get(baseurl + '/turn/' + turnId, {})
+      .then((res) => {
+        setTurn(res.data)
+        axios
+          .get(baseurl + '/productionOrder/' + res.data.productionOrder.id, {})
+          .then((res1) => {
+            setOrder(res1.data)
+          })
+          .catch(() => {
+            toast.error("Hubo un problema obteniendo la orden")
+          });
+        axios
+          .get(baseurl + '/quality/' + turnId, {})
+          .then((res2) => {
+            setQuality(res2.data)
+          })
+          .catch(() => {
+            toast.error("Hubo un problema obteniendo el control de calidad")
+          });
+      })
+      .catch(() => {
+        toast.error("Hubo un problema obteniendo el turno")
+      });
+  }, [])
+
+  useEffect(()=>{}, [turn, order])
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+      <h1 style={{ marginTop: '2%' }}> {'Calidad de Sinterizado - Turno' } </h1>
+      <Stack spacing={5} style={{ width: '30%', marginTop: '1%' }}>
+        <div>
+          <div>
+            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #1"} </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+              <p style={{ fontWeight: 'normal' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
+              <TextField
+                id="outlined-basic"
+                variant="outlined"
+                value={quality.sample1[0]}
+                disabled
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position='end'>
+                      <span style={{ color: '#cecece' }} >mm</span>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </div>
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
+              <p style={{ fontWeight: 'normal' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
+              <TextField
+                id="outlined-basic"
+                variant="outlined"
+                value={quality.sample1[1]}
+                disabled
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position='end'>
+                      <span style={{ color: '#cecece' }} >HRB</span>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </div>
+          </div>
+
+          <div>
+            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #2"} </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+              <p style={{ fontWeight: 'normal' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
+              <TextField
+                id="outlined-basic"
+                variant="outlined"
+                value={quality.sample2[0]}
+                disabled
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position='end'>
+                      <span style={{ color: '#cecece' }} >mm</span>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </div>
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
+              <p style={{ fontWeight: 'normal' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
+              <TextField
+                id="outlined-basic"
+                variant="outlined"
+                value={quality.sample2[1]}
+                disabled
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position='end'>
+                      <span style={{ color: '#cecece' }} >HRB</span>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </div>
+          </div>
+
+          <div>
+            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #3"} </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+              <p style={{ fontWeight: 'normal' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
+              <TextField
+                id="outlined-basic"
+                variant="outlined"
+                value={quality.sample3[0]}
+                disabled
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position='end'>
+                      <span style={{ color: '#cecece' }} >mm</span>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </div>
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
+              <p style={{ fontWeight: 'normal' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
+              <TextField
+                id="outlined-basic"
+                variant="outlined"
+                value={quality.sample3[1]}
+                disabled
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position='end'>
+                      <span style={{ color: '#cecece' }} >HRB</span>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </div>
+          </div>
+
+          <div>
+            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #4"} </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+              <p style={{ fontWeight: 'normal' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
+              <TextField
+                id="outlined-basic"
+                variant="outlined"
+                value={quality.sample4[0]}
+                disabled
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position='end'>
+                      <span style={{ color: '#cecece' }} >mm</span>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </div>
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
+              <p style={{ fontWeight: 'normal' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
+              <TextField
+                id="outlined-basic"
+                variant="outlined"
+                value={quality.sample4[1]}
+                disabled
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position='end'>
+                      <span style={{ color: '#cecece' }} >HRB</span>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </div>
+          </div>
+
+          <div>
+            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #5"} </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+              <p style={{ fontWeight: 'normal' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
+              <TextField
+                id="outlined-basic"
+                variant="outlined"
+                value={quality.sample5[0]}
+                disabled
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position='end'>
+                      <span style={{ color: '#cecece' }} >mm</span>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </div>
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
+              <p style={{ fontWeight: 'normal' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
+              <TextField
+                id="outlined-basic"
+                variant="outlined"
+                value={quality.sample5[1]}
+                disabled
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position='end'>
+                      <span style={{ color: '#cecece' }} >HRB</span>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </div>
+          </div>
+        </div>
+        <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate(-1)}>
+          <p>Volver</p>
+        </Button>
+      </Stack>
+    </div>
+  );
+};

@@ -39,7 +39,11 @@ export const CreateTurn = () => {
   const { id, machine } = useParams()
   
   const validateAllFields = () => {
-    return turn !== '' && amount !== '' && responsible !== ''
+    if(machine! !== "Sinterizado") {
+      return turn !== '' && amount !== '' && responsible !== ''
+    } else {
+      return turn2 !== '' && amount !== '' && responsible !== ''
+    }
   }
 
   const handleRequest = () => {
@@ -85,16 +89,9 @@ export const CreateTurn = () => {
       .catch(() => {
         toast.error("Hubo un problema obteniendo la orden")
       });
-
-    let mach = machine;
-    if(mach == "Pavonado" || mach == "Sinterizado") {
-      mach = "Horno de " + machine
-    }
     axios
-      .get(baseurl + '/turn/all/' + id + '/' + mach, {})
+      .get(baseurl + '/turn/all/' + id + '/' + machine, {})
       .then((res) => {
-        console.log(res.data)
-        console.log(dayjs().format("YYYY-MM-DD"))
         setTurnsList(res.data)
       })
       .catch(() => {
@@ -137,7 +134,7 @@ export const CreateTurn = () => {
               </MenuItem>
               : <></>
             }
-            { turnsList.filter((e: Turn) => e.turn === 'Noche' && e.localDate.toString() === dayjs().format("yyyy-mm-dd")).length === 0 ?
+            { turnsList.filter((e: Turn) => e.turn === 'Noche' && e.localDate.toString() === dayjs().format("YYYY-MM-DD")).length === 0 ?
               <MenuItem key={'Noche'} value={'Noche'}>
                 Noche
               </MenuItem>
@@ -154,13 +151,13 @@ export const CreateTurn = () => {
             }}
             required={true}
           >
-            { turnsList.filter((e: Turn) => e.turn === '1' && e.localDate.toString() === dayjs().format("yyyy-mm-dd")).length === 0 ?
+            { turnsList.filter((e: Turn) => e.turn === '1' && e.localDate.toString() === dayjs().format("YYYY-MM-DD")).length === 0 ?
               <MenuItem key={'1'} value={'1'}>
                 1
               </MenuItem>
               : <></>
             }
-            { turnsList.filter((e: Turn) => e.turn === '2' && e.localDate.toString() === dayjs().format("yyyy-mm-dd")).length === 0 ?
+            { turnsList.filter((e: Turn) => e.turn === '2' && e.localDate.toString() === dayjs().format("YYYY-MM-DD")).length === 0 ?
               <MenuItem key={'2'} value={'2'}>
                 2
               </MenuItem>

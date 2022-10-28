@@ -16,6 +16,12 @@ import { CreateFailure } from './pages/failure/CreateFailure';
 import { ViewFailures } from './pages/failure/ViewFailures';
 import { CreateTurn } from './pages/turn/CreateTurn';
 import { TurnList } from './pages/turn/TurnList';
+import { CreateControlPrensa } from './pages/control/CreateControlPrensa';
+import { ViewTurnsControl } from './pages/control/ViewTurnsControl';
+import { CreateControlSinterizado } from './pages/control/CreateControlSinterizado';
+import { CreateControlRoscado } from './pages/control/CreateControlRoscado';
+import { CreateControlTorno } from './pages/control/CreateControlTorno';
+import { CreateControlPavonado } from './pages/control/CreateControlPavonado';
 
 const Router = () => {
   return (
@@ -36,6 +42,12 @@ const Router = () => {
         <Route path={'/failures'} element={<FailureHome />} />
         <Route path={'/createTurn/:machine/:id'} element={<CreateTurn />} />
         <Route path={'/turns/:machine/:id'} element={<TurnList />} />
+        <Route path={'/controlTurns/:machine/:id'} element={<ViewTurnsControl />} />
+        <Route path={'/controlPrensa/:turnId'} element={<CreateControlPrensa />} />
+        <Route path={'/controlSinterizado/:turnId'} element={<CreateControlSinterizado />} />
+        <Route path={'/controlRoscadora/:turnId'} element={<CreateControlRoscado />} />
+        <Route path={'/controlTorno/:turnId'} element={<CreateControlTorno />} />
+        <Route path={'/controlPavonado/:turnId'} element={<CreateControlPavonado />} />
         <Route path={'/'} element={<Home />} />
       </Routes>
     </BrowserRouter>

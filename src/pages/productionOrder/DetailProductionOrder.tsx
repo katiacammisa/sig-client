@@ -12,6 +12,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { FormDialog } from '../../components/FormDialog';
 import { baseurl } from '../../common/http';
+import { Turn } from '../../models/Turn';
 
 export const DetailProductionOrder = () => {
   const navigate = useNavigate();
@@ -74,6 +75,12 @@ export const DetailProductionOrder = () => {
   const { id } = useParams()
   const [open, setOpen] = React.useState(false);
   const [amountDust, setAmountDust] = React.useState('');
+
+  const [turnPrensaList, setTurnPrensaList] = useState(true);
+  const [turnHornoSList, setTurnHornoSList] = useState(true);
+  const [turnRoscaList, setTurnRoscaList] = useState(true);
+  const [turnTornoList, setTurnTornoList] = useState(true);
+  const [turnHornoPList, setTurnHornoPList] = useState(true);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -159,9 +166,54 @@ export const DetailProductionOrder = () => {
       .catch(() => {
         toast.error("Hubo un problema obteniendo los productos almacenados")
       });
+
+    axios
+      .get(baseurl + '/turn/available/' + id + '/Prensa', {})
+      .then((res) => {
+        setTurnPrensaList(res.data)
+      })
+      .catch(() => {
+        toast.error("Hubo un problema obteniendo los turnos")
+      });
+
+    axios
+      .get(baseurl + '/turn/available/' + id + '/Horno de Sinterizado', {})
+      .then((res) => {
+        setTurnHornoSList(res.data)
+      })
+      .catch(() => {
+        toast.error("Hubo un problema obteniendo los turnos")
+      });
+
+    axios
+      .get(baseurl + '/turn/available/' + id + '/Roscadora', {})
+      .then((res) => {
+        setTurnRoscaList(res.data)
+      })
+      .catch(() => {
+        toast.error("Hubo un problema obteniendo los turnos")
+      });
+
+    axios
+      .get(baseurl + '/turn/available/' + id + '/Torno', {})
+      .then((res) => {
+        setTurnTornoList(res.data)
+      })
+      .catch(() => {
+        toast.error("Hubo un problema obteniendo los turnos")
+      });
+
+    axios
+      .get(baseurl + '/turn/available/' + id + '/Horno de Pavonado', {})
+      .then((res) => {
+        setTurnHornoPList(res.data)
+      })
+      .catch(() => {
+        toast.error("Hubo un problema obteniendo los turnos")
+      });
   }, [])
 
-  useEffect(()=>{}, [order, controlList])
+  useEffect(()=>{}, [order, controlList, turnHornoPList, turnPrensaList, turnRoscaList, turnTornoList, turnHornoSList])
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
@@ -171,7 +223,7 @@ export const DetailProductionOrder = () => {
         <h3 style={{ marginTop: '1%' }}>{"Código de matriz: " + order.matrixCode}</h3>
 
       </div>
-      <Stack spacing={2} style={{ width: '30%', marginTop: '3%' }}>
+      <Stack spacing={2} style={{ width: '40%', marginTop: '3%' }}>
 
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%'}} >
           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%' }}>
@@ -191,11 +243,12 @@ export const DetailProductionOrder = () => {
             <h2 style={{ marginLeft: '10px' }}> Prensado </h2>
           </div>
           { states.indexOf(order.state) === 3 ?
-            <Button variant="contained" style={{ backgroundColor: '#000000', width: '50%' }} onClick={() => navigate('/createTurn/Prensa/' + order.id)}>
-              <p>Agregar Turno</p>
-            </Button>
+            turnPrensaList ?
+                <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/createTurn/Prensa/' + order.id)}>
+                  <p>Agregar Turno</p>
+                </Button> : <></>
             : (states.indexOf(order.state) === 2 ?
-              <Button variant="contained" style={{ backgroundColor: '#000000', width: '50%' }} onClick={() => handleAdvanceProcess()}>
+              <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => handleAdvanceProcess()}>
                 <p>Comenzar Proceso</p>
               </Button>
               : (states.indexOf(order.state) > 3 && order.amountOfDustUsed === 0 ?
@@ -227,7 +280,7 @@ export const DetailProductionOrder = () => {
                 : <></>))
           }
           { states.indexOf(order.state) > 3 && order.amountOfDustUsed !== 0 ?
-            <Button variant="contained" style={{ backgroundColor: '#000000', width: '50%' }} onClick={() => navigate('/turns/Prensa/' + order.id)}>
+            <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/turns/Prensa/' + order.id)}>
               <p>Ver Turnos</p>
             </Button> : <></>
           }
@@ -237,9 +290,9 @@ export const DetailProductionOrder = () => {
             { states.indexOf(order.state) > 5 ? <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> }
             <h2 style={{ marginLeft: '10px' }}>Control Prensado</h2>
           </div>
-          { states.indexOf(order.state) > 5 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Prensa')[0].id)}>
-            <p>Ver Checklist</p>
-          </Button> : (states.indexOf(order.state) === 4 && order.amountOfDustUsed !== 0 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/createChecklist/' + controlList.filter(e => e.machine.name === 'Prensa')[0].id)}>
+          { states.indexOf(order.state) > 5 ? <Button variant="contained" style={{ backgroundColor: '#e6e6e6', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Prensa')[0].id)}>
+            <p>Ver Control</p>
+          </Button> : (states.indexOf(order.state) === 4 && order.amountOfDustUsed !== 0 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Prensa/' + order.id)}>
             <p>Generar Control</p>
           </Button> : <></> ) }
         </div>
@@ -265,9 +318,9 @@ export const DetailProductionOrder = () => {
             { states.indexOf(order.state) > 9 ? <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> }
             <h2 style={{ marginLeft: '10px' }}>Control Máquina - Horno Sinterizado</h2>
           </div>
-          { states.indexOf(order.state) > 9 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Horno de sinterizado')[0].id)}>
+          { states.indexOf(order.state) > 9 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Sinterizado')[0].id)}>
             <p>Ver Checklist</p>
-          </Button> : (states.indexOf(order.state) === 8 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/createChecklist/' + controlList.filter(e => e.machine.name === 'Horno de sinterizado')[0].id)}>
+          </Button> : (states.indexOf(order.state) === 8 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/createChecklist/' + controlList.filter(e => e.machine.name === 'Sinterizado')[0].id)}>
             <p>Generar Control</p>
           </Button> : <></> ) }
         </div>
@@ -278,18 +331,19 @@ export const DetailProductionOrder = () => {
             <h2 style={{ marginLeft: '10px' }}> Sinterizado </h2>
           </div>
           { states.indexOf(order.state) === 11 ?
-            <Button variant="contained" style={{ backgroundColor: '#000000', width: '50%' }} onClick={() => navigate('/createTurn/Sinterizado/' + order.id)}>
-              <p>Agregar Turno</p>
-            </Button>
+            turnHornoSList ?
+              <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/createTurn/Sinterizado/' + order.id)}>
+                <p>Agregar Turno</p>
+              </Button> : <></>
             : (states.indexOf(order.state) === 10 ?
-              <Button variant="contained" style={{ backgroundColor: '#000000', width: '50%' }} onClick={() => handleAdvanceProcess()}>
+              <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => handleAdvanceProcess()}>
                 <p>Comenzar Proceso</p>
               </Button>
               : <></>
             )
           }
           { states.indexOf(order.state) > 11 ?
-            <Button variant="contained" style={{ backgroundColor: '#000000', width: '50%' }} onClick={() => navigate('/turns/Sinterizado/' + order.id)}>
+            <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/turns/Sinterizado/' + order.id)}>
               <p>Ver Turnos</p>
             </Button> : <></>
           }
@@ -299,9 +353,9 @@ export const DetailProductionOrder = () => {
             { states.indexOf(order.state) > 13 ? <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> }
             <h2 style={{ marginLeft: '10px' }}>Control Sinterizado</h2>
           </div>
-          { states.indexOf(order.state) > 13 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Horno de sinterizado')[0].id)}>
-            <p>Ver Checklist</p>
-          </Button> : (states.indexOf(order.state) === 12 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/createChecklist/' + controlList.filter(e => e.machine.name === 'Horno de sinterizado')[0].id)}>
+          { states.indexOf(order.state) > 13 ? <Button variant="contained" style={{ backgroundColor: '#e6e6e6', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Sinterizado')[0].id)}>
+            <p>Ver Control</p>
+          </Button> : (states.indexOf(order.state) === 12 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Sinterizado/' + order.id)}>
             <p>Generar Control</p>
           </Button> : <></> ) }
         </div>
@@ -342,22 +396,23 @@ export const DetailProductionOrder = () => {
               <h2 style={{ marginLeft: '10px' }}> Roscado </h2>
             </div>
             { states.indexOf(order.state) === 19 ?
-              <Button variant="contained" style={{ backgroundColor: '#000000', width: '50%' }} onClick={() => navigate('/createTurn/Roscadora/' + order.id)}>
-                <p>Agregar Turno</p>
-              </Button>
+              turnRoscaList ?
+                <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/createTurn/Roscadora/' + order.id)}>
+                  <p>Agregar Turno</p>
+                </Button> : <></>
               : (states.indexOf(order.state) === 18 ?
-                  <Button variant="contained" style={{ backgroundColor: '#000000', width: '50%' }} onClick={() => handleAdvanceProcess()}>
+                  <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => handleAdvanceProcess()}>
                     <p>Comenzar Proceso</p>
                   </Button>
                   : <></>
               )
             }
+            { states.indexOf(order.state) > 19 ?
+              <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/turns/Roscadora/' + order.id)}>
+                <p>Ver Turnos</p>
+              </Button> : <></>
+            }
           </div> : <></>
-        }
-        { order.internalNumber === 202 && states.indexOf(order.state) > 19 ?
-          <Button variant="contained" style={{ backgroundColor: '#000000', width: '50%' }} onClick={() => navigate('/turns/Roscadora/' + order.id)}>
-            <p>Ver Turnos</p>
-          </Button> : <></>
         }
         {order.internalNumber === 202 ?
           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%'}} >
@@ -365,14 +420,13 @@ export const DetailProductionOrder = () => {
               { states.indexOf(order.state) > 21 ? <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> }
               <h2 style={{ marginLeft: '10px' }}> Control Roscado </h2>
             </div>
-            { states.indexOf(order.state) > 21 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Torno')[0].id)}>
-              <p>Ver Checklist</p>
-            </Button> : (states.indexOf(order.state) === 20 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/createChecklist/' + controlList.filter(e => e.machine.name === 'Torno')[0].id)}>
+            { states.indexOf(order.state) > 21 ? <Button variant="contained" style={{ backgroundColor: '#e6e6e6', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Torno')[0].id)}>
+              <p>Ver Control</p>
+            </Button> : (states.indexOf(order.state) === 20 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Roscadora/' + order.id)}>
               <p>Generar control</p>
             </Button> : <></> ) }
           </div> : <></>
         }
-
 
         { order.internalNumber === 293 ?
           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%'}} >
@@ -393,11 +447,12 @@ export const DetailProductionOrder = () => {
               <h2 style={{marginLeft: '10px'}}> Mecanizado </h2>
             </div>
             {states.indexOf(order.state) === 25 ?
-              <Button variant="contained" style={{backgroundColor: '#000000', width: '50%'}} onClick={() => navigate('/createTurn/Torno/' + order.id)}>
-                <p>Agregar Turno</p>
-              </Button>
+              turnTornoList ?
+                <Button variant="contained" style={{backgroundColor: '#000000', width: '40%'}} onClick={() => navigate('/createTurn/Torno/' + order.id)}>
+                  <p>Agregar Turno</p>
+                </Button> : <></>
               : (states.indexOf(order.state) === 24 ?
-                  <Button variant="contained" style={{backgroundColor: '#000000', width: '50%'}}
+                  <Button variant="contained" style={{backgroundColor: '#000000', width: '40%'}}
                           onClick={() => handleAdvanceProcess()}>
                     <p>Comenzar Proceso</p>
                   </Button>
@@ -407,7 +462,7 @@ export const DetailProductionOrder = () => {
           </div> : <></>
         }
         { order.internalNumber === 293 && states.indexOf(order.state) > 25 ?
-          <Button variant="contained" style={{ backgroundColor: '#000000', width: '50%' }} onClick={() => navigate('/turns/Torno/' + order.id)}>
+          <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/turns/Torno/' + order.id)}>
             <p>Ver Turnos</p>
           </Button> : <></>
         }
@@ -417,9 +472,9 @@ export const DetailProductionOrder = () => {
               { states.indexOf(order.state) > 27 ? <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> }
               <h2 style={{ marginLeft: '10px' }}> Control Mecanizado </h2>
             </div>
-            { states.indexOf(order.state) > 27 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Roscadora')[0].id)}>
-              <p>Ver Checklist</p>
-            </Button> : (states.indexOf(order.state) === 26 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/createChecklist/' + controlList.filter(e => e.machine.name === 'Roscadora')[0].id)}>
+            { states.indexOf(order.state) > 27 ? <Button variant="contained" style={{ backgroundColor: '#e6e6e6', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Roscadora')[0].id)}>
+              <p>Ver Control</p>
+            </Button> : (states.indexOf(order.state) === 26 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Torno/' + order.id)}>
               <p>Generar control</p>
             </Button> : <></> ) }
           </div> : <></>
@@ -430,9 +485,9 @@ export const DetailProductionOrder = () => {
             { states.indexOf(order.state) > 29 ? <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> }
             <h2 style={{ marginLeft: '10px' }}>Control Máquina - Horno Pavonado</h2>
           </div>
-          { states.indexOf(order.state) > 29 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Horno de pavonado')[0].id)}>
+          { states.indexOf(order.state) > 29 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Pavonado')[0].id)}>
             <p>Ver Checklist</p>
-          </Button> : (states.indexOf(order.state) === 28 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/createChecklist/' + controlList.filter(e => e.machine.name === 'Horno de pavonado')[0].id)}>
+          </Button> : (states.indexOf(order.state) === 28 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/createChecklist/' + controlList.filter(e => e.machine.name === 'Pavonado')[0].id)}>
             <p>Generar Control</p>
           </Button> : <></> ) }
         </div>
@@ -442,18 +497,19 @@ export const DetailProductionOrder = () => {
             <h2 style={{ marginLeft: '10px' }}> Pavonado </h2>
           </div>
           { states.indexOf(order.state) === 31 ?
-            <Button variant="contained" style={{ backgroundColor: '#000000', width: '50%' }} onClick={() => navigate('/createTurn/Pavonado/' + order.id)}>
-              <p>Agregar Turno</p>
-            </Button>
+            turnHornoPList ?
+              <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/createTurn/Pavonado/' + order.id)}>
+                <p>Agregar Turno</p>
+              </Button> : <></>
             : (states.indexOf(order.state) === 30 ?
-                <Button variant="contained" style={{ backgroundColor: '#000000', width: '50%' }} onClick={() => handleAdvanceProcess()}>
+                <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => handleAdvanceProcess()}>
                   <p>Comenzar Proceso</p>
                 </Button>
                 : <></>
             )
           }
           { states.indexOf(order.state) > 31 ?
-            <Button variant="contained" style={{ backgroundColor: '#000000', width: '50%' }} onClick={() => navigate('/turns/Pavonado/' + order.id)}>
+            <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/turns/Pavonado/' + order.id)}>
               <p>Ver Turnos</p>
             </Button> : <></>
           }
@@ -463,9 +519,9 @@ export const DetailProductionOrder = () => {
             { states.indexOf(order.state) > 33 ? <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> }
             <h2 style={{ marginLeft: '10px' }}>Control Pavonado</h2>
           </div>
-          { states.indexOf(order.state) > 33 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Horno de pavonado')[0].id)}>
-            <p>Ver Checklist</p>
-          </Button> : (states.indexOf(order.state) === 32 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/createChecklist/' + controlList.filter(e => e.machine.name === 'Horno de pavonado')[0].id)}>
+          { states.indexOf(order.state) > 33 ? <Button variant="contained" style={{ backgroundColor: '#e6e6e6', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Pavonado')[0].id)}>
+            <p>Ver Control</p>
+          </Button> : (states.indexOf(order.state) === 32 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Pavonado/' + order.id)}>
             <p>Generar Control</p>
           </Button> : <></> ) }
         </div>

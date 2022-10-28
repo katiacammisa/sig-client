@@ -64,7 +64,7 @@ export const ChecklistProductionOrder = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <h1 style={{ marginTop: '2%' }}> Ver Checklist </h1>
+      <h1 style={{ marginTop: '2%' }}> Ver Control de Máquina </h1>
       <Stack spacing={5} style={{ width: '30%', marginTop: '3%' }}>
 
         <div>

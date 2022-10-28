@@ -10,7 +10,8 @@ export interface Turn {
   localDate: Date;
   productionOrder: ProductionOrder;
   turn: string;
-  passed: boolean;
+  passedControl: boolean;
+  done: boolean;
 }
 
 export interface CreateTurnModel {

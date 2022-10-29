@@ -107,55 +107,55 @@ export const CreateControlTorno = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <h1 style={{ marginTop: '2%' }}> {'Calidad de Torno - Turno' } </h1>
+      <h1 style={{ marginTop: '2%', fontSize: '40px', color: '#03396c' }}> {'Calidad de Torno - Turno' } </h1>
       <Stack spacing={5} style={{ width: '30%', marginTop: '1%' }}>
         <div>
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #1"} </h3>
+            <h2> {"Muestra #1"} </h2>
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'center' }}>
               <Checkbox id={"1"} />
-              <p> Control visual ranura </p>
+              <p style={{ fontSize: '20px' }} > Control visual ranura </p>
             </div>
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #2"} </h3>
+            <h2> {"Muestra #2"} </h2>
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'center' }}>
               <Checkbox id={"2"} />
-              <p> Control visual ranura </p>
+              <p style={{ fontSize: '20px' }} > Control visual ranura </p>
             </div>
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #3"} </h3>
+            <h2> {"Muestra #3"} </h2>
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'center' }}>
               <Checkbox id={"3"} />
-              <p> Control visual ranura </p>
+              <p style={{ fontSize: '20px' }} > Control visual ranura </p>
             </div>
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #4"} </h3>
+            <h2> {"Muestra #4"} </h2>
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'center' }}>
               <Checkbox id={"4"} />
-              <p> Control visual ranura </p>
+              <p style={{ fontSize: '20px' }} > Control visual ranura </p>
             </div>
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #5"} </h3>
+            <h2> {"Muestra #5"} </h2>
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'center' }}>
               <Checkbox id={"5"} />
-              <p> Control visual ranura </p>
+              <p style={{ fontSize: '20px' }} > Control visual ranura </p>
             </div>
           </div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
           <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate(-1)}>
-            <p>Volver</p>
+            <h3>Volver</h3>
           </Button>
           <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => handleRequest()}>
-            <p>Enviar</p>
+            <h3>Enviar</h3>
           </Button>
         </div>
       </Stack>

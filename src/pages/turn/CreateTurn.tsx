@@ -29,7 +29,7 @@ export const CreateTurn = () => {
     state: "POLVO"
   }
 
-  const [turn, setTurn] = useState('');
+  const [turn, setTurn] = useState('Mañana');
   const [turn2, setTurn2] = useState('1');
   const [amount, setAmount] = useState('');
   const [responsible, setResponsible] = useState('');
@@ -101,7 +101,7 @@ export const CreateTurn = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <h1 style={{ marginTop: '5%' }}>Ingresar turno</h1>
+      <h1 style={{ marginTop: '5%', fontSize: '40px', color: '#03396c' }}>Ingresar turno</h1>
       <Stack spacing={5} style={{ width: '20%', marginTop: '3%' }}>
         <TextField
           id="outlined-basic"
@@ -110,6 +110,8 @@ export const CreateTurn = () => {
           value={responsible}
           onChange={(e) => setResponsible(e.target.value)}
           required={true}
+          inputProps={{style: {fontSize: 20}}}
+          InputLabelProps={{style: {fontSize: 20}}}
         />
         { machine! !== "Sinterizado" ?
           <Select
@@ -124,19 +126,19 @@ export const CreateTurn = () => {
           >
             { turnsList.filter((e: Turn) => e.turn === 'Mañana' && e.localDate.toString() === dayjs().format("YYYY-MM-DD")).length === 0 ?
               <MenuItem key={'Mañana'} value={'Mañana'}>
-                Mañana
+                <p style={{ fontSize: '20px', margin: '3px' }} > Mañana </p>
               </MenuItem>
               : <></>
             }
             { turnsList.filter((e: Turn) => e.turn === 'Tarde' && e.localDate.toString() === dayjs().format("YYYY-MM-DD")).length === 0 ?
               <MenuItem key={'Tarde'} value={'Tarde'}>
-                Tarde
+                <p style={{ fontSize: '20px', margin: '3px' }} >Tarde</p>
               </MenuItem>
               : <></>
             }
             { turnsList.filter((e: Turn) => e.turn === 'Noche' && e.localDate.toString() === dayjs().format("YYYY-MM-DD")).length === 0 ?
               <MenuItem key={'Noche'} value={'Noche'}>
-                Noche
+                <p style={{ fontSize: '20px', margin: '3px' }} >Noche</p>
               </MenuItem>
               : <></>
             }
@@ -153,20 +155,20 @@ export const CreateTurn = () => {
           >
             { turnsList.filter((e: Turn) => e.turn === '1' && e.localDate.toString() === dayjs().format("YYYY-MM-DD")).length === 0 ?
               <MenuItem key={'1'} value={'1'}>
-                1
+                <p style={{ fontSize: '20px', margin: '3px' }} >1</p>
               </MenuItem>
               : <></>
             }
             { turnsList.filter((e: Turn) => e.turn === '2' && e.localDate.toString() === dayjs().format("YYYY-MM-DD")).length === 0 ?
               <MenuItem key={'2'} value={'2'}>
-                2
+                <p style={{ fontSize: '20px', margin: '3px' }} >2</p>
               </MenuItem>
               : <></>
             }
           </Select>
         }
         <div style={{ marginTop: '0', display: 'flex', flexDirection: 'column', width: '100%' }} >
-          <h3 style={{ fontWeight: 'normal', marginBottom: '10px', textAlign: 'center' }}> {"Quedan " + order.missingPieces + " piezas por procesar"} </h3>
+          <h2 style={{ fontWeight: 'normal', marginBottom: '10px', textAlign: 'center' }}> {"Quedan " + order.missingPieces + " piezas por procesar"} </h2>
           <TextField
             id="outlined-basic"
             label="Cantidad de piezas"
@@ -174,14 +176,16 @@ export const CreateTurn = () => {
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             required={true}
+            inputProps={{style: {fontSize: 20}}}
+            InputLabelProps={{style: {fontSize: 20}}}
           />
         </div>
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
           <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate(-1)}>
-            <p>Volver</p>
+            <h3>Volver</h3>
           </Button>
           <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => handleRequest()}>
-            <p>Enviar</p>
+            <h3>Enviar</h3>
           </Button>
         </div>
       </Stack>

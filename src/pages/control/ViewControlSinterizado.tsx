@@ -96,18 +96,20 @@ export const ViewControlSinterizado = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <h1 style={{ marginTop: '2%' }}> {'Calidad de Sinterizado - Turno' } </h1>
+      <h1 style={{ marginTop: '2%', fontSize: '40px', color: '#03396c' }}> {'Calidad de Sinterizado - Turno' } </h1>
       <Stack spacing={5} style={{ width: '30%', marginTop: '1%' }}>
         <div>
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #1"} </h3>
+            <h2> {"Muestra #1"} </h2>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-              <p style={{ fontWeight: 'normal' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
+              <p style={{ fontSize: '20px' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
                 value={quality.sample1[0]}
                 disabled
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -118,12 +120,14 @@ export const ViewControlSinterizado = () => {
               />
             </div>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-              <p style={{ fontWeight: 'normal' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
+              <p style={{ fontSize: '20px' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
                 value={quality.sample1[1]}
                 disabled
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -136,14 +140,16 @@ export const ViewControlSinterizado = () => {
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #2"} </h3>
+            <h2> {"Muestra #2"} </h2>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-              <p style={{ fontWeight: 'normal' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
+              <p style={{ fontSize: '20px' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
                 value={quality.sample2[0]}
                 disabled
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -154,12 +160,14 @@ export const ViewControlSinterizado = () => {
               />
             </div>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-              <p style={{ fontWeight: 'normal' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
+              <p style={{ fontSize: '20px' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
                 value={quality.sample2[1]}
                 disabled
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -172,14 +180,16 @@ export const ViewControlSinterizado = () => {
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #3"} </h3>
+            <h2> {"Muestra #3"} </h2>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-              <p style={{ fontWeight: 'normal' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
+              <p style={{ fontSize: '20px' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
                 value={quality.sample3[0]}
                 disabled
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -190,12 +200,14 @@ export const ViewControlSinterizado = () => {
               />
             </div>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-              <p style={{ fontWeight: 'normal' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
+              <p style={{ fontSize: '20px' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
                 value={quality.sample3[1]}
                 disabled
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -208,14 +220,16 @@ export const ViewControlSinterizado = () => {
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #4"} </h3>
+            <h2> {"Muestra #4"} </h2>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-              <p style={{ fontWeight: 'normal' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
+              <p style={{ fontSize: '20px' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
                 value={quality.sample4[0]}
                 disabled
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -226,12 +240,14 @@ export const ViewControlSinterizado = () => {
               />
             </div>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-              <p style={{ fontWeight: 'normal' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
+              <p style={{ fontSize: '20px' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
                 value={quality.sample4[1]}
                 disabled
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -244,14 +260,16 @@ export const ViewControlSinterizado = () => {
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #5"} </h3>
+            <h2> {"Muestra #5"} </h2>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-              <p style={{ fontWeight: 'normal' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
+              <p style={{ fontSize: '20px' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
                 value={quality.sample5[0]}
                 disabled
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -262,12 +280,14 @@ export const ViewControlSinterizado = () => {
               />
             </div>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-              <p style={{ fontWeight: 'normal' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
+              <p style={{ fontSize: '20px' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
                 value={quality.sample5[1]}
                 disabled
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -280,7 +300,7 @@ export const ViewControlSinterizado = () => {
           </div>
         </div>
         <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate(-1)}>
-          <p>Volver</p>
+          <h3>Volver</h3>
         </Button>
       </Stack>
     </div>

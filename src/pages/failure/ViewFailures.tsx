@@ -36,7 +36,7 @@ export const ViewFailures = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <h1 style={{ marginTop: '5%' }}>Ver fallos</h1>
+      <h1 style={{ marginTop: '5%', fontSize: '40px', color: '#03396c' }}>Ver fallos</h1>
       <Stack spacing={5} style={{ width: '20%', marginTop: '3%' }}>
         {failureList.map((element) => {
           return (
@@ -44,7 +44,7 @@ export const ViewFailures = () => {
           );
         })}
         <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate(-1)}>
-          <p>Volver</p>
+          <h3>Volver</h3>
         </Button>
       </Stack>
     </div>

@@ -64,8 +64,8 @@ export const ChecklistProductionOrder = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <h1 style={{ marginTop: '2%' }}> Ver Control de Máquina </h1>
-      <Stack spacing={5} style={{ width: '30%', marginTop: '3%' }}>
+      <h1 style={{ marginTop: '2%', fontSize: '40px', color: '#03396c' }}> Ver Control de Máquina </h1>
+      <Stack spacing={5} style={{ width: '40%', marginTop: '3%' }}>
 
         <div>
           {control.items.map((item) => {
@@ -75,12 +75,12 @@ export const ChecklistProductionOrder = () => {
                   expandIcon={<ExpandMore />}
                   aria-controls="panel1bh-content"
                   id="panel1bh-header">
-                  <h3> {item.name} </h3>
+                  <h2> {item.name} </h2>
                 </AccordionSummary>
                 <AccordionDetails>
                   <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%' }}>
                     <Checkbox disabled checked />
-                    <h3> {item.description} </h3>
+                    <h2 style={{ fontWeight: 'normal', margin: '0' }}> {item.description} </h2>
                   </div>
                 </AccordionDetails>
               </Accordion>
@@ -89,7 +89,7 @@ export const ChecklistProductionOrder = () => {
         </div>
 
         <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate(-1)}>
-          <p>Volver</p>
+          <h3>Volver</h3>
         </Button>
       </Stack>
     </div>

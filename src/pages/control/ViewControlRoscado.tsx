@@ -96,22 +96,24 @@ export const ViewControlRoscado = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <h1 style={{ marginTop: '2%' }}> {'Calidad de Roscado - Turno' } </h1>
+      <h1 style={{ marginTop: '2%', fontSize: '40px', color: '#03396c' }}> {'Calidad de Roscado - Turno' } </h1>
       <Stack spacing={5} style={{ width: '30%', marginTop: '1%' }}>
         <div>
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #1"} </h3>
+            <h2> {"Muestra #1"} </h2>
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'center' }}>
               <Checkbox id={"1"} checked={quality.sample1[0]==1} disabled />
-              <p> El tapón esta bien </p>
+              <p style={{ fontSize: '20px' }} > El tapón esta bien </p>
             </div>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-              <p> El torque debe ser mayor a 25 N/m </p>
+              <p style={{ fontSize: '20px' }} > El torque debe ser mayor a 25 N/m </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
                 value={quality.sample1[1]}
                 disabled
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -124,18 +126,20 @@ export const ViewControlRoscado = () => {
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #2"} </h3>
+            <h2> {"Muestra #2"} </h2>
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'center' }}>
               <Checkbox id={"2"} checked={quality.sample2[0]==1} disabled />
-              <p> El tapón esta bien </p>
+              <p style={{ fontSize: '20px' }} > El tapón esta bien </p>
             </div>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-              <p> El torque debe ser mayor a 25 N/m </p>
+              <p style={{ fontSize: '20px' }} > El torque debe ser mayor a 25 N/m </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
                 value={quality.sample2[1]}
                 disabled
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -148,18 +152,20 @@ export const ViewControlRoscado = () => {
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #3"} </h3>
+            <h2> {"Muestra #3"} </h2>
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'center' }}>
               <Checkbox id={"3"} checked={quality.sample3[0]==1} disabled />
-              <p> El tapón esta bien </p>
+              <p style={{ fontSize: '20px' }} > El tapón esta bien </p>
             </div>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-              <p> El torque debe ser mayor a 25 N/m </p>
+              <p style={{ fontSize: '20px' }} > El torque debe ser mayor a 25 N/m </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
                 value={quality.sample3[1]}
                 disabled
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -172,18 +178,20 @@ export const ViewControlRoscado = () => {
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #4"} </h3>
+            <h2> {"Muestra #4"} </h2>
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'center' }}>
               <Checkbox id={"4"} checked={quality.sample4[0]==1} disabled />
-              <p> El tapón esta bien </p>
+              <p style={{ fontSize: '20px' }} > El tapón esta bien </p>
             </div>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-              <p> El torque debe ser mayor a 25 N/m </p>
+              <p style={{ fontSize: '20px' }} > El torque debe ser mayor a 25 N/m </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
                 value={quality.sample4[1]}
                 disabled
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -196,18 +204,20 @@ export const ViewControlRoscado = () => {
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #5"} </h3>
+            <h2> {"Muestra #5"} </h2>
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'center' }}>
               <Checkbox id={"5"} checked={quality.sample5[0]==1} disabled />
-              <p> El tapón esta bien </p>
+              <p style={{ fontSize: '20px' }} > El tapón esta bien </p>
             </div>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-              <p> El torque debe ser mayor a 25 N/m </p>
+              <p style={{ fontSize: '20px' }} > El torque debe ser mayor a 25 N/m </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
                 value={quality.sample5[1]}
                 disabled
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -220,7 +230,7 @@ export const ViewControlRoscado = () => {
           </div>
         </div>
         <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate(-1)}>
-          <p>Volver</p>
+          <h3>Volver</h3>
         </Button>
       </Stack>
     </div>

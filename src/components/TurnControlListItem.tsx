@@ -15,17 +15,17 @@ export const TurnControlListItem = (props: { onClick: MouseEventHandler<HTMLButt
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', justifyContent: 'space-between' }}>
       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'space-between' }}>
         <div>
-          <h2> {"Piezas terminadas: " + props.turn.pieces} </h2>
-          <h2> {"Máquina: " + props.turn.machine.name} </h2>
-          <h3 style={{ fontWeight: "normal" }}> {"Hecho por: " + props.turn.responsible} </h3>
+          <h1> {"Piezas terminadas: " + props.turn.pieces} </h1>
+          <h1> {"Máquina: " + props.turn.machine.name} </h1>
+          <h2 style={{ fontWeight: "normal" }}> {"Hecho por: " + props.turn.responsible} </h2>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-          <h2> {"Turno: " + props.turn.turn} </h2>
-          <h3 style={{ fontWeight: "normal" }}> {props.turn.localDate.toString()} </h3>
+          <h1> {"Turno: " + props.turn.turn} </h1>
+          <h2 style={{ fontWeight: "normal" }}> {props.turn.localDate.toString()} </h2>
         </div>
       </div>
-      {!props.turn.done ? <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={props.onClick}>
-        <p>Realizar Control</p>
+      {!props.turn.done ? <Button style={{ background: 'white', color: '#03396c' }} onClick={props.onClick}>
+        <h2>Realizar Control</h2>
       </Button> : (props.turn.passedControl ?
           <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} onClick={() => navigate('/viewControl' + props.turn.machine.name + '/' + props.turn.id)} /> :
           <IconButton>

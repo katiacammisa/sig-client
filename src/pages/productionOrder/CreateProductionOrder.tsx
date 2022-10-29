@@ -51,8 +51,8 @@ export const CreateProductionOrder = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <h1 style={{ marginTop: '5%' }}>Ingresar orden de produccion</h1>
-      <Stack spacing={5} style={{ width: '20%', marginTop: '3%' }}>
+      <h1 style={{ marginTop: '5%', fontSize: '40px', color: '#03396c' }}>Ingresar orden de produccion</h1>
+      <Stack spacing={5} style={{ width: '30%', marginTop: '3%' }}>
         <TextField
           id="outlined-basic"
           label="Numero de orden"
@@ -60,6 +60,8 @@ export const CreateProductionOrder = () => {
           value={number}
           onChange={(e) => setNumber(e.target.value)}
           required={true}
+          inputProps={{style: {fontSize: 20}}}
+          InputLabelProps={{style: {fontSize: 20}}}
         />
         <Select
           className="selectGD"
@@ -72,13 +74,13 @@ export const CreateProductionOrder = () => {
           required={true}
         >
           <MenuItem key={'202'} value={'202'}>
-            202 - Tuerca
+            <p style={{ fontSize: '20px', margin: '3px' }} >202 - Tuerca</p>
           </MenuItem>
           <MenuItem key={'293'} value={'293'}>
-            293 - Pistón
+            <p style={{ fontSize: '20px', margin: '3px' }} >293 - Pistón</p>
           </MenuItem>
           <MenuItem key={'204'} value={'204'}>
-            204 - Guía
+            <p style={{ fontSize: '20px', margin: '3px' }} >204 - Guía</p>
           </MenuItem>
         </Select>
         <TextField
@@ -88,19 +90,22 @@ export const CreateProductionOrder = () => {
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
           required={true}
+          inputProps={{style: {fontSize: 20}}}
+          InputLabelProps={{style: {fontSize: 20}}}
         />
         <textarea
           placeholder="Observaciones"
           className="descriptionField"
           defaultValue={description}
           onChange={(e) => setDescription(e.target.value)}
+          style={{ fontSize: '20px' }}
         />
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
           <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate('/')}>
-            <p>Volver</p>
+            <h3>Volver</h3>
           </Button>
           <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => handleRequest()}>
-            <p>Continuar</p>
+            <h3>Continuar</h3>
           </Button>
         </div>
       </Stack>

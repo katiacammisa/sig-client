@@ -37,7 +37,7 @@ export const TurnList = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <h1 style={{ marginTop: '5%' }}>Ver turnos del proceso</h1>
+      <h1 style={{ marginTop: '5%', fontSize: '40px', color: '#03396c' }}>Ver turnos del proceso</h1>
       <Stack spacing={3} style={{ width: '50%', marginTop: '3%' }}>
         {turnList.map((element) => {
           return (
@@ -45,7 +45,7 @@ export const TurnList = () => {
           );
         })}
         <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate(-1)}>
-          <p>Volver</p>
+          <h3>Volver</h3>
         </Button>
       </Stack>
     </div>

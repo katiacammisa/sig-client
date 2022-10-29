@@ -28,11 +28,11 @@ export const Stock = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <h1 style={{ marginTop: '5%' }}>Productos en stock</h1>
-      <Stack spacing={5} style={{ width: '20%', marginTop: '3%' }}>
+      <h1 style={{ marginTop: '3%', fontSize: '40px', color: '#03396c' }}>Productos en stock</h1>
+      <Stack spacing={5} style={{ width: '30%', marginTop: '1.5%' }}>
         <StockListItem stock={stock}/>
         <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate('/')}>
-          <p>Volver</p>
+          <h3>Volver</h3>
         </Button>
       </Stack>
     </div>

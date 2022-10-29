@@ -36,15 +36,15 @@ export const ViewTurnsControl = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <h1 style={{ marginTop: '5%' }}>Ver turnos</h1>
-      <Stack spacing={5} style={{ width: '30%', marginTop: '3%' }}>
+      <h1 style={{ marginTop: '5%', fontSize: '40px', color: '#03396c' }}>Ver turnos</h1>
+      <Stack spacing={5} style={{ width: '40%', marginTop: '3%' }}>
         {turnList.map((element) => {
           return (
             <TurnControlListItem onClick={() => navigate('/control' + machine + '/' + element.id)} turn={element}/>
           );
         })}
         <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate(-1)}>
-          <p>Volver</p>
+          <h3>Volver</h3>
         </Button>
       </Stack>
     </div>

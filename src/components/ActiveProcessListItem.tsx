@@ -8,12 +8,12 @@ export const ActiveProcessListItem = (props: { onClick: MouseEventHandler<HTMLBu
     <div>
       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'space-between' }}>
         <div>
-          <h2> {"OP#" + props.order.orderNumber} </h2>
-          <h3 style={{ fontWeight: "normal" }}> {(props.order.internalNumber === 202 ? "Tuerca" : (props.order.internalNumber === 293 ? "Piston" : "Guia")) + " - " + props.order.amountOfPieces + " unidades"} </h3>
+          <h1> {"OP#" + props.order.orderNumber} </h1>
+          <h2 style={{ fontWeight: "normal" }}> {(props.order.internalNumber === 202 ? "Tuerca" : (props.order.internalNumber === 293 ? "Piston" : "Guia")) + " - " + props.order.amountOfPieces + " unidades"} </h2>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <Button variant="contained" style={{ backgroundColor: '#000000', margin: '2px' }} className={'homeButton'} onClick={props.onClick}>
-            Ver Detalle
+          <Button style={{ background: 'white', color: '#03396c', margin: '2px' }} onClick={props.onClick}>
+            <h2>Ver Detalle</h2>
           </Button>
         </div>
       </div>

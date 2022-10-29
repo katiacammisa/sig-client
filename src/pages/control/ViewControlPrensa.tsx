@@ -96,18 +96,20 @@ export const ViewControlPrensa = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <h1 style={{ marginTop: '2%' }}> {'Calidad de Prensado - Turno' } </h1>
+      <h1 style={{ marginTop: '2%', fontSize: '40px', color: '#03396c' }}> {'Calidad de Prensado - Turno' } </h1>
       <Stack spacing={5} style={{ width: '30%', marginTop: '1%' }}>
         <div>
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #1"} </h3>
+            <h2> {"Muestra #1"} </h2>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-              <p style={{ fontWeight: 'normal' }} > {"La altura total debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "13,00-13,10" : (order.internalNumber === 202 ? "17,95-18,05" : "12,95-13,05"))} </p>
+              <p style={{ fontSize: '20px' }} > {"La altura total debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "13,00-13,10" : (order.internalNumber === 202 ? "17,95-18,05" : "12,95-13,05"))} </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
                 value={quality.sample1[0]}
                 disabled
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -119,12 +121,14 @@ export const ViewControlPrensa = () => {
             </div>
             {order.internalNumber !== 293 ?
               <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-                <p> {"La altura del cuello debe estar entre los siguientes valores: " + (order.internalNumber === 202 ? "14,45-14,55" : "14,05-14,15")} </p>
+                <p style={{ fontSize: '20px' }} > {"La altura del cuello debe estar entre los siguientes valores: " + (order.internalNumber === 202 ? "14,45-14,55" : "14,05-14,15")} </p>
                 <TextField
                   id="outlined-basic"
                   variant="outlined"
                   value={quality.sample1[1]}
                   disabled
+                  inputProps={{style: {fontSize: 20}}}
+                  InputLabelProps={{style: {fontSize: 20}}}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position='end'>
@@ -138,14 +142,16 @@ export const ViewControlPrensa = () => {
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #2"} </h3>
+            <h2> {"Muestra #2"} </h2>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-              <p style={{ fontWeight: 'normal' }} > {"La altura total debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "13,00-13,10" : (order.internalNumber === 202 ? "17,95-18,05" : "12,95-13,05"))} </p>
+              <p style={{ fontSize: '20px' }} > {"La altura total debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "13,00-13,10" : (order.internalNumber === 202 ? "17,95-18,05" : "12,95-13,05"))} </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
                 value={quality.sample2[0]}
                 disabled
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -157,12 +163,14 @@ export const ViewControlPrensa = () => {
             </div>
             {order.internalNumber !== 293 ?
               <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-                <p> {"La altura del cuello debe estar entre los siguientes valores: " + (order.internalNumber === 202 ? "14,45-14,55" : "14,05-14,15")} </p>
+                <p style={{ fontSize: '20px' }} > {"La altura del cuello debe estar entre los siguientes valores: " + (order.internalNumber === 202 ? "14,45-14,55" : "14,05-14,15")} </p>
                 <TextField
                   id="outlined-basic"
                   variant="outlined"
                   value={quality.sample2[1]}
                   disabled
+                  inputProps={{style: {fontSize: 20}}}
+                  InputLabelProps={{style: {fontSize: 20}}}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position='end'>
@@ -176,14 +184,16 @@ export const ViewControlPrensa = () => {
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #3"} </h3>
+            <h2> {"Muestra #3"} </h2>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-              <p style={{ fontWeight: 'normal' }} > {"La altura total debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "13,00-13,10" : (order.internalNumber === 202 ? "17,95-18,05" : "12,95-13,05"))} </p>
+              <p style={{ fontSize: '20px' }} > {"La altura total debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "13,00-13,10" : (order.internalNumber === 202 ? "17,95-18,05" : "12,95-13,05"))} </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
                 value={quality.sample3[0]}
                 disabled
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -195,12 +205,14 @@ export const ViewControlPrensa = () => {
             </div>
             {order.internalNumber !== 293 ?
               <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-                <p> {"La altura del cuello debe estar entre los siguientes valores: " + (order.internalNumber === 202 ? "14,45-14,55" : "14,05-14,15")} </p>
+                <p style={{ fontSize: '20px' }} > {"La altura del cuello debe estar entre los siguientes valores: " + (order.internalNumber === 202 ? "14,45-14,55" : "14,05-14,15")} </p>
                 <TextField
                   id="outlined-basic"
                   variant="outlined"
                   value={quality.sample3[1]}
                   disabled
+                  inputProps={{style: {fontSize: 20}}}
+                  InputLabelProps={{style: {fontSize: 20}}}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position='end'>
@@ -214,14 +226,16 @@ export const ViewControlPrensa = () => {
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #4"} </h3>
+            <h2> {"Muestra #4"} </h2>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-              <p style={{ fontWeight: 'normal' }} > {"La altura total debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "13,00-13,10" : (order.internalNumber === 202 ? "17,95-18,05" : "12,95-13,05"))} </p>
+              <p style={{ fontSize: '20px' }} > {"La altura total debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "13,00-13,10" : (order.internalNumber === 202 ? "17,95-18,05" : "12,95-13,05"))} </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
                 value={quality.sample4[0]}
                 disabled
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -233,12 +247,14 @@ export const ViewControlPrensa = () => {
             </div>
             {order.internalNumber !== 293 ?
               <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-                <p> {"La altura del cuello debe estar entre los siguientes valores: " + (order.internalNumber === 202 ? "14,45-14,55" : "14,05-14,15")} </p>
+                <p style={{ fontSize: '20px' }} > {"La altura del cuello debe estar entre los siguientes valores: " + (order.internalNumber === 202 ? "14,45-14,55" : "14,05-14,15")} </p>
                 <TextField
                   id="outlined-basic"
                   variant="outlined"
                   value={quality.sample4[1]}
                   disabled
+                  inputProps={{style: {fontSize: 20}}}
+                  InputLabelProps={{style: {fontSize: 20}}}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position='end'>
@@ -252,14 +268,16 @@ export const ViewControlPrensa = () => {
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #5"} </h3>
+            <h2> {"Muestra #5"} </h2>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-              <p style={{ fontWeight: 'normal' }} > {"La altura total debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "13,00-13,10" : (order.internalNumber === 202 ? "17,95-18,05" : "12,95-13,05"))} </p>
+              <p style={{ fontSize: '20px' }} > {"La altura total debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "13,00-13,10" : (order.internalNumber === 202 ? "17,95-18,05" : "12,95-13,05"))} </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
                 value={quality.sample5[0]}
                 disabled
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -271,12 +289,14 @@ export const ViewControlPrensa = () => {
             </div>
             {order.internalNumber !== 293 ?
               <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-                <p> {"La altura del cuello debe estar entre los siguientes valores: " + (order.internalNumber === 202 ? "14,45-14,55" : "14,05-14,15")} </p>
+                <p style={{ fontSize: '20px' }} > {"La altura del cuello debe estar entre los siguientes valores: " + (order.internalNumber === 202 ? "14,45-14,55" : "14,05-14,15")} </p>
                 <TextField
                   id="outlined-basic"
                   variant="outlined"
                   value={quality.sample5[1]}
                   disabled
+                  inputProps={{style: {fontSize: 20}}}
+                  InputLabelProps={{style: {fontSize: 20}}}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position='end'>
@@ -290,7 +310,7 @@ export const ViewControlPrensa = () => {
           </div>
         </div>
         <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate(-1)}>
-          <p>Volver</p>
+          <h3>Volver</h3>
         </Button>
       </Stack>
     </div>

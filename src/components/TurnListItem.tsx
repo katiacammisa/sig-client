@@ -9,13 +9,13 @@ export const TurnListItem = (props: { turn: Turn }) => {
     <div>
       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'space-between' }}>
         <div>
-          <h2> {"Piezas terminadas: " + props.turn.pieces} </h2>
-          <h2> {"Máquina: " + props.turn.machine.name} </h2>
-          <h3 style={{ fontWeight: "normal" }}> {"Hecho por: " + props.turn.responsible} </h3>
+          <h1> {"Piezas terminadas: " + props.turn.pieces} </h1>
+          <h1> {"Máquina: " + props.turn.machine.name} </h1>
+          <h2 style={{ fontWeight: "normal" }}> {"Hecho por: " + props.turn.responsible} </h2>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-          <h2> {"Turno: " + props.turn.turn} </h2>
-          <h3 style={{ fontWeight: "normal" }}> {props.turn.localDate.toString()} </h3>
+          <h1> {"Turno: " + props.turn.turn} </h1>
+          <h2 style={{ fontWeight: "normal" }}> {props.turn.localDate.toString()} </h2>
         </div>
       </div>
     </div>

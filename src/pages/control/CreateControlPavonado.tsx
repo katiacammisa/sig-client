@@ -115,13 +115,13 @@ export const CreateControlPavonado = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <h1 style={{ marginTop: '2%' }}> {'Calidad de Pavonado - Turno' } </h1>
+      <h1 style={{ marginTop: '2%', fontSize: '40px', color: '#03396c' }}> {'Calidad de Pavonado - Turno' } </h1>
       <Stack spacing={5} style={{ width: '30%', marginTop: '1%' }}>
         <div>
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #1"} </h3>
+            <h2> {"Muestra #1"} </h2>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-              <p> {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber == 293 ? "80-90 HRB" : "60-90 HRB")} </p>
+              <p style={{ fontSize: '20px' }}> {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber == 293 ? "80-90 HRB" : "60-90 HRB")} </p>
               <TextField
                 id="outlined-basic"
                 label="Dureza"
@@ -129,6 +129,8 @@ export const CreateControlPavonado = () => {
                 value={altura1}
                 onChange={(e) => {setAltura1(e.target.value)}}
                 required={true}
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -141,9 +143,9 @@ export const CreateControlPavonado = () => {
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #2"} </h3>
+            <h2> {"Muestra #2"} </h2>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-              <p> {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber == 293 ? "80-90 HRB" : "60-90 HRB")} </p>
+              <p style={{ fontSize: '20px' }}> {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber == 293 ? "80-90 HRB" : "60-90 HRB")} </p>
               <TextField
                 id="outlined-basic"
                 label="Dureza"
@@ -151,6 +153,8 @@ export const CreateControlPavonado = () => {
                 value={altura2}
                 onChange={(e) => {setAltura2(e.target.value)}}
                 required={true}
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -163,9 +167,9 @@ export const CreateControlPavonado = () => {
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #3"} </h3>
+            <h2> {"Muestra #3"} </h2>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-              <p> {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber == 293 ? "80-90 HRB" : "60-90 HRB")} </p>
+              <p style={{ fontSize: '20px' }}> {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber == 293 ? "80-90 HRB" : "60-90 HRB")} </p>
               <TextField
                 id="outlined-basic"
                 label="Dureza"
@@ -173,6 +177,8 @@ export const CreateControlPavonado = () => {
                 value={altura3}
                 onChange={(e) => {setAltura3(e.target.value)}}
                 required={true}
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -185,9 +191,9 @@ export const CreateControlPavonado = () => {
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #4"} </h3>
+            <h2> {"Muestra #4"} </h2>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-              <p> {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber == 293 ? "80-90 HRB" : "60-90 HRB")} </p>
+              <p style={{ fontSize: '20px' }}> {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber == 293 ? "80-90 HRB" : "60-90 HRB")} </p>
               <TextField
                 id="outlined-basic"
                 label="Dureza"
@@ -195,6 +201,8 @@ export const CreateControlPavonado = () => {
                 value={altura4}
                 onChange={(e) => {setAltura4(e.target.value)}}
                 required={true}
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -207,9 +215,9 @@ export const CreateControlPavonado = () => {
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #5"} </h3>
+            <h2> {"Muestra #5"} </h2>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-              <p> {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber == 293 ? "80-90 HRB" : "60-90 HRB")} </p>
+              <p style={{ fontSize: '20px' }}> {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber == 293 ? "80-90 HRB" : "60-90 HRB")} </p>
               <TextField
                 id="outlined-basic"
                 label="Dureza"
@@ -217,6 +225,8 @@ export const CreateControlPavonado = () => {
                 value={altura5}
                 onChange={(e) => {setAltura5(e.target.value)}}
                 required={true}
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -230,10 +240,10 @@ export const CreateControlPavonado = () => {
         </div>
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
           <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate(-1)}>
-            <p>Volver</p>
+            <h3>Volver</h3>
           </Button>
           <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => handleRequest()}>
-            <p>Enviar</p>
+            <h3>Enviar</h3>
           </Button>
         </div>
       </Stack>

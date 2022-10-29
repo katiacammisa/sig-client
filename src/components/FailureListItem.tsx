@@ -13,8 +13,8 @@ export const FailureListItem = (props: { onClick: MouseEventHandler<HTMLButtonEl
           <h3 style={{ fontWeight: 'normal' }} > {props.failure.date.toString()} </h3>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <Button variant="contained" style={{ backgroundColor: '#000000', margin: '2px' }} className={'homeButton'} onClick={props.onClick}>
-            Ver Detalle
+          <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', margin: '2px' }} className={'homeButton'} onClick={props.onClick}>
+            <h2>Ver Detalle</h2>
           </Button>
         </div>
       </div>

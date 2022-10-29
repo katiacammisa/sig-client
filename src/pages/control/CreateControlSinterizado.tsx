@@ -124,13 +124,13 @@ export const CreateControlSinterizado = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <h1 style={{ marginTop: '2%' }}> {'Calidad de Sinterizado - Turno' } </h1>
+      <h1 style={{ marginTop: '2%', fontSize: '40px', color: '#03396c' }}> {'Calidad de Sinterizado - Turno' } </h1>
       <Stack spacing={5} style={{ width: '30%', marginTop: '1%' }}>
         <div>
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #1"} </h3>
+            <h2> {"Muestra #1"} </h2>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-              <p style={{ fontWeight: 'normal' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
+              <p style={{ fontSize: '20px' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
               <TextField
                 id="outlined-basic"
                 label="Diametro"
@@ -138,6 +138,8 @@ export const CreateControlSinterizado = () => {
                 value={altura1}
                 onChange={(e) => {setAltura1(e.target.value)}}
                 required={true}
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -148,7 +150,7 @@ export const CreateControlSinterizado = () => {
               />
             </div>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-              <p style={{ fontWeight: 'normal' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
+              <p style={{ fontSize: '20px' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
               <TextField
                 id="outlined-basic"
                 label="Dureza"
@@ -156,6 +158,8 @@ export const CreateControlSinterizado = () => {
                 value={altura2}
                 onChange={(e) => {setAltura2(e.target.value)}}
                 required={true}
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -168,9 +172,9 @@ export const CreateControlSinterizado = () => {
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #2"} </h3>
+            <h2> {"Muestra #2"} </h2>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-              <p style={{ fontWeight: 'normal' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
+              <p style={{ fontSize: '20px' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
               <TextField
                 id="outlined-basic"
                 label="Diametro"
@@ -178,6 +182,8 @@ export const CreateControlSinterizado = () => {
                 value={altura3}
                 onChange={(e) => {setAltura3(e.target.value)}}
                 required={true}
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -188,7 +194,7 @@ export const CreateControlSinterizado = () => {
               />
             </div>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-              <p style={{ fontWeight: 'normal' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
+              <p style={{ fontSize: '20px' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
               <TextField
                 id="outlined-basic"
                 label="Dureza"
@@ -196,6 +202,8 @@ export const CreateControlSinterizado = () => {
                 value={altura4}
                 onChange={(e) => {setAltura4(e.target.value)}}
                 required={true}
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -208,9 +216,9 @@ export const CreateControlSinterizado = () => {
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #3"} </h3>
+            <h2> {"Muestra #3"} </h2>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-              <p style={{ fontWeight: 'normal' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
+              <p style={{ fontSize: '20px' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
               <TextField
                 id="outlined-basic"
                 label="Diametro"
@@ -218,6 +226,8 @@ export const CreateControlSinterizado = () => {
                 value={altura5}
                 onChange={(e) => {setAltura5(e.target.value)}}
                 required={true}
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -228,7 +238,7 @@ export const CreateControlSinterizado = () => {
               />
             </div>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-              <p style={{ fontWeight: 'normal' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
+              <p style={{ fontSize: '20px' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
               <TextField
                 id="outlined-basic"
                 label="Dureza"
@@ -236,6 +246,8 @@ export const CreateControlSinterizado = () => {
                 value={altura6}
                 onChange={(e) => {setAltura6(e.target.value)}}
                 required={true}
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -248,9 +260,9 @@ export const CreateControlSinterizado = () => {
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #4"} </h3>
+            <h2> {"Muestra #4"} </h2>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-              <p style={{ fontWeight: 'normal' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
+              <p style={{ fontSize: '20px' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
               <TextField
                 id="outlined-basic"
                 label="Diametro"
@@ -258,6 +270,8 @@ export const CreateControlSinterizado = () => {
                 value={altura7}
                 onChange={(e) => {setAltura7(e.target.value)}}
                 required={true}
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -268,7 +282,7 @@ export const CreateControlSinterizado = () => {
               />
             </div>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-              <p style={{ fontWeight: 'normal' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
+              <p style={{ fontSize: '20px' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
               <TextField
                 id="outlined-basic"
                 label="Dureza"
@@ -276,6 +290,8 @@ export const CreateControlSinterizado = () => {
                 value={altura8}
                 onChange={(e) => {setAltura8(e.target.value)}}
                 required={true}
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -288,9 +304,9 @@ export const CreateControlSinterizado = () => {
           </div>
 
           <div>
-            <h3 style={{ fontWeight: 'normal' }}> {"Muestra #5"} </h3>
+            <h2> {"Muestra #5"} </h2>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-              <p style={{ fontWeight: 'normal' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
+              <p style={{ fontSize: '20px' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
               <TextField
                 id="outlined-basic"
                 label="Diametro"
@@ -298,6 +314,8 @@ export const CreateControlSinterizado = () => {
                 value={altura9}
                 onChange={(e) => {setAltura9(e.target.value)}}
                 required={true}
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -308,7 +326,7 @@ export const CreateControlSinterizado = () => {
               />
             </div>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-              <p style={{ fontWeight: 'normal' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
+              <p style={{ fontSize: '20px' }} > {"La dureza debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "60-70" : (order.internalNumber === 202 ? "50-60" : "> 30"))} </p>
               <TextField
                 id="outlined-basic"
                 label="Dureza"
@@ -316,6 +334,8 @@ export const CreateControlSinterizado = () => {
                 value={altura10}
                 onChange={(e) => {setAltura10(e.target.value)}}
                 required={true}
+                inputProps={{style: {fontSize: 20}}}
+                InputLabelProps={{style: {fontSize: 20}}}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -329,10 +349,10 @@ export const CreateControlSinterizado = () => {
         </div>
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
           <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate(-1)}>
-            <p>Volver</p>
+            <h3>Volver</h3>
           </Button>
           <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => handleRequest()}>
-            <p>Enviar</p>
+            <h3>Enviar</h3>
           </Button>
         </div>
       </Stack>

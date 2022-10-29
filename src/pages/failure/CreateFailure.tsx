@@ -56,7 +56,7 @@ export const CreateFailure = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <h1 style={{ marginTop: '5%' }}>Generar reporte de fallo</h1>
+      <h1 style={{ marginTop: '5%', fontSize: '40px', color: '#03396c' }}>Generar reporte de fallo</h1>
       <Stack spacing={5} style={{ width: '20%', marginTop: '3%' }}>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <TimePicker
@@ -87,19 +87,19 @@ export const CreateFailure = () => {
           required={true}
         >
           <MenuItem key={'Prensa'} value={'Prensa'}>
-            Prensa
+            <p style={{ fontSize: '20px', margin: '3px' }} >Prensa</p>
           </MenuItem>
           <MenuItem key={'Horno de sinterizado'} value={'Horno de sinterizado'}>
-            Horno de Sinterizado
+            <p style={{ fontSize: '20px', margin: '3px' }} >Horno de Sinterizado</p>
           </MenuItem>
           <MenuItem key={'Roscadora'} value={'Roscadora'}>
-            Roscadora
+            <p style={{ fontSize: '20px', margin: '3px' }} >Roscadora</p>
           </MenuItem>
           <MenuItem key={'Torno'} value={'Torno'}>
-            Torno
+            <p style={{ fontSize: '20px', margin: '3px' }} >Torno</p>
           </MenuItem>
           <MenuItem key={'Horno de pavonado'} value={'Horno de pavonado'}>
-            Horno de Pavonado
+            <p style={{ fontSize: '20px', margin: '3px' }} >Horno de Pavonado</p>
           </MenuItem>
         </Select>
         <TextField
@@ -115,13 +115,14 @@ export const CreateFailure = () => {
           className="descriptionField"
           defaultValue={description}
           onChange={(e) => setDescription(e.target.value)}
+          style={{ fontSize: '20px' }}
         />
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
           <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate('/failures')}>
-            <p>Volver</p>
+            <h3>Volver</h3>
           </Button>
           <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => handleRequest()}>
-            <p>Continuar</p>
+            <h3>Continuar</h3>
           </Button>
         </div>
       </Stack>

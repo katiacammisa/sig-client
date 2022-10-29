@@ -34,7 +34,7 @@ export const EnterDust = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <h1 style={{ marginTop: '5%' }}>Ingresar polvo</h1>
+      <h1 style={{ marginTop: '5%', fontSize: '40px', color: '#03396c' }}>Ingresar polvo</h1>
       <Stack spacing={5} style={{ width: '20%', marginTop: '3%' }}>
         <TextField
           id="outlined-basic"
@@ -42,13 +42,15 @@ export const EnterDust = () => {
           variant="outlined"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
+          inputProps={{style: {fontSize: 20}}}
+          InputLabelProps={{style: {fontSize: 20}}}
         />
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
           <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate('/')}>
-            <p>Volver</p>
+            <h3>Volver</h3>
           </Button>
           <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => handleRequest()}>
-            <p>Almacenar</p>
+            <h3>Almacenar</h3>
           </Button>
         </div>
       </Stack>

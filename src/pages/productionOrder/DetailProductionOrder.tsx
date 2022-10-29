@@ -217,7 +217,7 @@ export const DetailProductionOrder = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <h1 style={{ marginTop: '2%' }}>{"Ver detalle - OP#" + order.orderNumber}</h1>
+      <h1 style={{ marginTop: '2%', fontSize: '40px', color: '#03396c' }}>{"Ver detalle - OP#" + order.orderNumber}</h1>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', justifyContent: 'space-around', marginTop: '1%' }}>
         <h3 style={{ marginTop: '0.2%' }}>{"Planificado: " + order.amountOfPieces + " unidades de " + (order.internalNumber === 202 ? "tuercas" : (order.internalNumber === 293 ? "pistones" : "guias")) }</h3>
         <h3 style={{ marginTop: '0.2%' }}>{"Actual: " + order.finalAmountOfPieces + " unidades de " + (order.internalNumber === 202 ? "tuercas" : (order.internalNumber === 293 ? "pistones" : "guias")) }</h3>
@@ -230,9 +230,9 @@ export const DetailProductionOrder = () => {
             { states.indexOf(order.state) > 1 ? <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> }
             <h2 style={{ marginLeft: '10px' }}>Control Máquina - Prensa</h2>
           </div>
-          { states.indexOf(order.state) > 1 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Prensa')[0].id)}>
+          { states.indexOf(order.state) > 1 ? <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Prensa')[0].id)}>
             <p>Ver Checklist</p>
-          </Button> : (states.indexOf(order.state) === 0 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/createChecklist/' + controlList.filter(e => e.machine.name === 'Prensa')[0].id)}>
+          </Button> : (states.indexOf(order.state) === 0 ? <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/createChecklist/' + controlList.filter(e => e.machine.name === 'Prensa')[0].id)}>
             <p>Generar Control</p>
           </Button> : <></> ) }
         </div>
@@ -244,23 +244,23 @@ export const DetailProductionOrder = () => {
           </div>
           { states.indexOf(order.state) === 3 ?
             turnPrensaList ?
-                <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/createTurn/Prensa/' + order.id)}>
+                <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/createTurn/Prensa/' + order.id)}>
                   <p>Agregar Turno</p>
                 </Button> : <></>
             : (states.indexOf(order.state) === 2 ?
-              <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => handleAdvanceProcess()}>
+              <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => handleAdvanceProcess()}>
                 <p>Comenzar Proceso</p>
               </Button>
               : (states.indexOf(order.state) > 3 && order.amountOfDustUsed === 0 ?
                 <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end', height: '65px' }}>
-                  <Button variant="contained" style={{ backgroundColor: '#000000', width: '60%' }} onClick={handleClickOpen}>
+                  <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '58.5%' }} onClick={handleClickOpen}>
                     Polvo utilizado
                   </Button>
-                  <Dialog open={open} onClose={handleClose} style={{ width: '100%' }}>
-                    <DialogTitle>Polvo</DialogTitle>
+                  <Dialog open={open} onClose={handleClose} fullWidth maxWidth="xs">
+                    <DialogTitle><h2 style={{ color: '#03396c', margin: '0' }} >Polvo</h2></DialogTitle>
                     <DialogContent>
                       <DialogContentText>
-                        Ingresar la cantidad de polvo utilizada
+                        <h3 style={{ fontSize: '20px', margin: '0', paddingBottom: '20px' }} >Ingresar la cantidad de polvo utilizada</h3>
                       </DialogContentText>
                       <TextField
                         id="outlined-basic"
@@ -269,18 +269,20 @@ export const DetailProductionOrder = () => {
                         value={amountDust}
                         onChange={(e) => setAmountDust(e.target.value)}
                         required={true}
+                        inputProps={{style: {fontSize: 20}}}
+                        InputLabelProps={{style: {fontSize: 20}}}
                       />
                     </DialogContent>
                     <DialogActions>
-                      <Button onClick={handleClose}>Volver</Button>
-                      <Button onClick={handleSend}>Enviar</Button>
+                      <Button onClick={handleClose}><h4>Volver</h4></Button>
+                      <Button onClick={handleSend}><h4>Enviar</h4></Button>
                     </DialogActions>
                   </Dialog>
                 </div>
                 : <></>))
           }
           { states.indexOf(order.state) > 3 && order.amountOfDustUsed !== 0 ?
-            <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/turns/Prensa/' + order.id)}>
+            <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/turns/Prensa/' + order.id)}>
               <p>Ver Turnos</p>
             </Button> : <></>
           }
@@ -290,9 +292,9 @@ export const DetailProductionOrder = () => {
             { states.indexOf(order.state) > 5 ? <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> }
             <h2 style={{ marginLeft: '10px' }}>Control Prensado</h2>
           </div>
-          { states.indexOf(order.state) > 5 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Prensa/' + order.id)}>
+          { states.indexOf(order.state) > 5 ? <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/controlTurns/Prensa/' + order.id)}>
             <p>Ver Control</p>
-          </Button> : (states.indexOf(order.state) === 4 && order.amountOfDustUsed !== 0 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Prensa/' + order.id)}>
+          </Button> : (states.indexOf(order.state) === 4 && order.amountOfDustUsed !== 0 ? <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/controlTurns/Prensa/' + order.id)}>
             <p>Generar Control</p>
           </Button> : <></> ) }
         </div>
@@ -302,10 +304,10 @@ export const DetailProductionOrder = () => {
             <h2 style={{ marginLeft: '10px' }}> Almacenado Prensado </h2>
           </div>
           { states.indexOf(order.state) === 6 ?
-            <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => handleAdvanceProcess()}>
+            <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => handleAdvanceProcess()}>
               <p>Comenzar Almacenado</p>
             </Button> : ( states.indexOf(order.state) === 7 ?
-              <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => handleAdvanceProcess()}>
+              <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => handleAdvanceProcess()}>
                 <p>Finalizar Almacenado</p>
               </Button>
               : <></> 
@@ -318,9 +320,9 @@ export const DetailProductionOrder = () => {
             { states.indexOf(order.state) > 9 ? <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> }
             <h2 style={{ marginLeft: '10px' }}>Control Máquina - Horno Sinterizado</h2>
           </div>
-          { states.indexOf(order.state) > 9 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Sinterizado')[0].id)}>
+          { states.indexOf(order.state) > 9 ? <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Sinterizado')[0].id)}>
             <p>Ver Checklist</p>
-          </Button> : (states.indexOf(order.state) === 8 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/createChecklist/' + controlList.filter(e => e.machine.name === 'Sinterizado')[0].id)}>
+          </Button> : (states.indexOf(order.state) === 8 ? <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/createChecklist/' + controlList.filter(e => e.machine.name === 'Sinterizado')[0].id)}>
             <p>Generar Control</p>
           </Button> : <></> ) }
         </div>
@@ -332,18 +334,18 @@ export const DetailProductionOrder = () => {
           </div>
           { states.indexOf(order.state) === 11 ?
             turnHornoSList ?
-              <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/createTurn/Sinterizado/' + order.id)}>
+              <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/createTurn/Sinterizado/' + order.id)}>
                 <p>Agregar Turno</p>
               </Button> : <></>
             : (states.indexOf(order.state) === 10 ?
-              <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => handleAdvanceProcess()}>
+              <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => handleAdvanceProcess()}>
                 <p>Comenzar Proceso</p>
               </Button>
               : <></>
             )
           }
           { states.indexOf(order.state) > 11 ?
-            <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/turns/Sinterizado/' + order.id)}>
+            <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/turns/Sinterizado/' + order.id)}>
               <p>Ver Turnos</p>
             </Button> : <></>
           }
@@ -353,9 +355,9 @@ export const DetailProductionOrder = () => {
             { states.indexOf(order.state) > 13 ? <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> }
             <h2 style={{ marginLeft: '10px' }}>Control Sinterizado</h2>
           </div>
-          { states.indexOf(order.state) > 13 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Sinterizado/' + order.id)}>
+          { states.indexOf(order.state) > 13 ? <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/controlTurns/Sinterizado/' + order.id)}>
             <p>Ver Control</p>
-          </Button> : (states.indexOf(order.state) === 12 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Sinterizado/' + order.id)}>
+          </Button> : (states.indexOf(order.state) === 12 ? <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/controlTurns/Sinterizado/' + order.id)}>
             <p>Generar Control</p>
           </Button> : <></> ) }
         </div>
@@ -365,10 +367,10 @@ export const DetailProductionOrder = () => {
             <h2 style={{ marginLeft: '10px' }}> Almacenado Sinterizado </h2>
           </div>
           { states.indexOf(order.state) === 14 ?
-            <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => handleAdvanceProcess()}>
+            <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => handleAdvanceProcess()}>
               <p>Comenzar Almacenado</p>
             </Button> : ( states.indexOf(order.state) === 15 ?
-                <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => handleAdvanceProcess()}>
+                <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => handleAdvanceProcess()}>
                   <p>Finalizar Almacenado</p>
                 </Button>
                 : <></>
@@ -382,9 +384,9 @@ export const DetailProductionOrder = () => {
             { states.indexOf(order.state) > 17 ? <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> }
             <h2 style={{ marginLeft: '10px' }}>Control Máquina - Roscadora</h2>
           </div>
-          { states.indexOf(order.state) > 17 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Torno')[0].id)}>
+          { states.indexOf(order.state) > 17 ? <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Torno')[0].id)}>
             <p>Ver Checklist</p>
-          </Button> : (states.indexOf(order.state) === 16 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/createChecklist/' + controlList.filter(e => e.machine.name === 'Torno')[0].id)}>
+          </Button> : (states.indexOf(order.state) === 16 ? <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/createChecklist/' + controlList.filter(e => e.machine.name === 'Torno')[0].id)}>
             <p>Generar Control</p>
           </Button> : <></> ) }
         </div> : <></> }
@@ -397,18 +399,18 @@ export const DetailProductionOrder = () => {
             </div>
             { states.indexOf(order.state) === 19 ?
               turnRoscaList ?
-                <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/createTurn/Roscadora/' + order.id)}>
+                <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/createTurn/Roscadora/' + order.id)}>
                   <p>Agregar Turno</p>
                 </Button> : <></>
               : (states.indexOf(order.state) === 18 ?
-                  <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => handleAdvanceProcess()}>
+                  <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => handleAdvanceProcess()}>
                     <p>Comenzar Proceso</p>
                   </Button>
                   : <></>
               )
             }
             { states.indexOf(order.state) > 19 ?
-              <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/turns/Roscadora/' + order.id)}>
+              <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/turns/Roscadora/' + order.id)}>
                 <p>Ver Turnos</p>
               </Button> : <></>
             }
@@ -420,9 +422,9 @@ export const DetailProductionOrder = () => {
               { states.indexOf(order.state) > 21 ? <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> }
               <h2 style={{ marginLeft: '10px' }}> Control Roscado </h2>
             </div>
-            { states.indexOf(order.state) > 21 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Roscadora/' + order.id)}>
+            { states.indexOf(order.state) > 21 ? <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/controlTurns/Roscadora/' + order.id)}>
               <p>Ver Control</p>
-            </Button> : (states.indexOf(order.state) === 20 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Roscadora/' + order.id)}>
+            </Button> : (states.indexOf(order.state) === 20 ? <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/controlTurns/Roscadora/' + order.id)}>
               <p>Generar control</p>
             </Button> : <></> ) }
           </div> : <></>
@@ -434,9 +436,9 @@ export const DetailProductionOrder = () => {
               { states.indexOf(order.state) > 23 ? <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> }
               <h2 style={{ marginLeft: '10px' }}>Control Máquina - Torno</h2>
             </div>
-            { states.indexOf(order.state) > 23 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Roscadora')[0].id)}>
+            { states.indexOf(order.state) > 23 ? <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Roscadora')[0].id)}>
               <p>Ver Checklist</p>
-            </Button> : (states.indexOf(order.state) === 22 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/createChecklist/' + controlList.filter(e => e.machine.name === 'Roscadora')[0].id)}>
+            </Button> : (states.indexOf(order.state) === 22 ? <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/createChecklist/' + controlList.filter(e => e.machine.name === 'Roscadora')[0].id)}>
               <p>Generar Control</p>
             </Button> : <></> ) }
           </div> : <></> }
@@ -448,11 +450,11 @@ export const DetailProductionOrder = () => {
             </div>
             {states.indexOf(order.state) === 25 ?
               turnTornoList ?
-                <Button variant="contained" style={{backgroundColor: '#000000', width: '40%'}} onClick={() => navigate('/createTurn/Torno/' + order.id)}>
+                <Button variant="contained" style={{background: 'linear-gradient(#03396c, #005b96)', width: '40%'}} onClick={() => navigate('/createTurn/Torno/' + order.id)}>
                   <p>Agregar Turno</p>
                 </Button> : <></>
               : (states.indexOf(order.state) === 24 ?
-                  <Button variant="contained" style={{backgroundColor: '#000000', width: '40%'}}
+                  <Button variant="contained" style={{background: 'linear-gradient(#03396c, #005b96)', width: '40%'}}
                           onClick={() => handleAdvanceProcess()}>
                     <p>Comenzar Proceso</p>
                   </Button>
@@ -460,7 +462,7 @@ export const DetailProductionOrder = () => {
               )
             }
             { order.internalNumber === 293 && states.indexOf(order.state) > 25 ?
-              <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/turns/Torno/' + order.id)}>
+              <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/turns/Torno/' + order.id)}>
                 <p>Ver Turnos</p>
               </Button> : <></>
             }
@@ -472,9 +474,9 @@ export const DetailProductionOrder = () => {
               { states.indexOf(order.state) > 27 ? <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> }
               <h2 style={{ marginLeft: '10px' }}> Control Mecanizado </h2>
             </div>
-            { states.indexOf(order.state) > 27 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Torno/' + order.id)}>
+            { states.indexOf(order.state) > 27 ? <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/controlTurns/Torno/' + order.id)}>
               <p>Ver Control</p>
-            </Button> : (states.indexOf(order.state) === 26 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Torno/' + order.id)}>
+            </Button> : (states.indexOf(order.state) === 26 ? <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/controlTurns/Torno/' + order.id)}>
               <p>Generar control</p>
             </Button> : <></> ) }
           </div> : <></>
@@ -485,9 +487,9 @@ export const DetailProductionOrder = () => {
             { states.indexOf(order.state) > 29 ? <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> }
             <h2 style={{ marginLeft: '10px' }}>Control Máquina - Horno Pavonado</h2>
           </div>
-          { states.indexOf(order.state) > 29 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Pavonado')[0].id)}>
+          { states.indexOf(order.state) > 29 ? <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/checklist/' + controlList.filter(e => e.machine.name === 'Pavonado')[0].id)}>
             <p>Ver Checklist</p>
-          </Button> : (states.indexOf(order.state) === 28 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/createChecklist/' + controlList.filter(e => e.machine.name === 'Pavonado')[0].id)}>
+          </Button> : (states.indexOf(order.state) === 28 ? <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/createChecklist/' + controlList.filter(e => e.machine.name === 'Pavonado')[0].id)}>
             <p>Generar Control</p>
           </Button> : <></> ) }
         </div>
@@ -498,18 +500,18 @@ export const DetailProductionOrder = () => {
           </div>
           { states.indexOf(order.state) === 31 ?
             turnHornoPList ?
-              <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/createTurn/Pavonado/' + order.id)}>
+              <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/createTurn/Pavonado/' + order.id)}>
                 <p>Agregar Turno</p>
               </Button> : <></>
             : (states.indexOf(order.state) === 30 ?
-                <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => handleAdvanceProcess()}>
+                <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => handleAdvanceProcess()}>
                   <p>Comenzar Proceso</p>
                 </Button>
                 : <></>
             )
           }
           { states.indexOf(order.state) > 31 ?
-            <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/turns/Pavonado/' + order.id)}>
+            <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/turns/Pavonado/' + order.id)}>
               <p>Ver Turnos</p>
             </Button> : <></>
           }
@@ -519,9 +521,9 @@ export const DetailProductionOrder = () => {
             { states.indexOf(order.state) > 33 ? <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> }
             <h2 style={{ marginLeft: '10px' }}>Control Pavonado</h2>
           </div>
-          { states.indexOf(order.state) > 33 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Pavonado/' + order.id)}>
+          { states.indexOf(order.state) > 33 ? <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/controlTurns/Pavonado/' + order.id)}>
             <p>Ver Control</p>
-          </Button> : (states.indexOf(order.state) === 32 ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => navigate('/controlTurns/Pavonado/' + order.id)}>
+          </Button> : (states.indexOf(order.state) === 32 ? <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => navigate('/controlTurns/Pavonado/' + order.id)}>
             <p>Generar Control</p>
           </Button> : <></> ) }
         </div>
@@ -531,13 +533,13 @@ export const DetailProductionOrder = () => {
             {states.indexOf(order.state) < 34 ? <PendingActionsOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : (!order.finished ? <SyncOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} /> : <CheckCircleOutlineOutlined fontSize={"inherit"} style={{ fontSize: '60px' }} />) }
             <h2 style={{ marginLeft: '10px' }}> Stock </h2>
           </div>
-          {states.indexOf(order.state) === 34 && !order.finished ? <Button variant="contained" style={{ backgroundColor: '#000000', width: '40%' }} onClick={() => finishProductionOrder()}>
+          {states.indexOf(order.state) === 34 && !order.finished ? <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)', width: '40%' }} onClick={() => finishProductionOrder()}>
             <p>Finalizar Proceso</p>
           </Button> : <></>}
         </div>
 
         <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate(-1)}>
-          <p>Volver</p>
+          <h3>Volver</h3>
         </Button>
       </Stack>
     </div>

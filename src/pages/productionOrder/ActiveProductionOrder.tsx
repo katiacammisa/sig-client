@@ -35,15 +35,15 @@ export const ActiveProductionOrder = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <h1 style={{ marginTop: '5%' }}>Ver procesos activos</h1>
-      <Stack spacing={5} style={{ width: '20%', marginTop: '3%' }}>
+      <h1 style={{ marginTop: '5%', fontSize: '40px', color: '#03396c' }}>Ver procesos activos</h1>
+      <Stack spacing={5} style={{ width: '30%', marginTop: '3%' }}>
         {orderList.map((element) => {
           return (
             <ActiveProcessListItem onClick={() => navigate('/details/' + element.id)} order={element}/>
           );
         })}
         <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate('/')}>
-          <p>Volver</p>
+          <h3>Volver</h3>
         </Button>
       </Stack>
     </div>

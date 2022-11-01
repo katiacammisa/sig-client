@@ -11,7 +11,6 @@ import {DetailProductionOrder} from "./pages/productionOrder/DetailProductionOrd
 import {ChecklistProductionOrder} from "./pages/productionOrder/ChecklistProductionOrder";
 import { CreateChecklist } from './pages/productionOrder/CreateChecklist';
 import { FinishedProductionOrder } from './pages/productionOrder/FinishedProductionOrder';
-import FailureHome from './pages/failure/FailureHome';
 import { CreateFailure } from './pages/failure/CreateFailure';
 import { ViewFailures } from './pages/failure/ViewFailures';
 import { CreateTurn } from './pages/turn/CreateTurn';
@@ -27,6 +26,7 @@ import { ViewControlSinterizado } from './pages/control/ViewControlSinterizado';
 import { ViewControlRoscado } from './pages/control/ViewControlRoscado';
 import { ViewControlTorno } from './pages/control/ViewControlTorno';
 import { ViewControlPavonado } from './pages/control/ViewControlPavonado';
+import { ScrapItems } from './pages/scrap/ScrapItems';
 
 
 const Router = () => {
@@ -42,11 +42,11 @@ const Router = () => {
         <Route path={'/details/:id'} element={<DetailProductionOrder />} />
         <Route path={'/createChecklist/:id'} element={<CreateChecklist />} />
         <Route path={'/stock'} element={<Stock />} />
+        <Route path={'/scrap'} element={<ScrapItems />} />
         <Route path={'/indicators'} element={<Home />} />
 
         <Route path={'/failures/creation'} element={<CreateFailure />} />
         <Route path={'/failures/view'} element={<ViewFailures />} />
-        <Route path={'/failures'} element={<FailureHome />} />
 
         <Route path={'/createTurn/:machine/:id'} element={<CreateTurn />} />
         <Route path={'/turns/:machine/:id'} element={<TurnList />} />

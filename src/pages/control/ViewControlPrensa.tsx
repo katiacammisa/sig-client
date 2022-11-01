@@ -97,7 +97,7 @@ export const ViewControlPrensa = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
       <h1 style={{ marginTop: '2%', fontSize: '40px', color: '#03396c' }}> {'Calidad de Prensado - Turno' } </h1>
-      <Stack spacing={5} style={{ width: '30%', marginTop: '1%' }}>
+      <Stack spacing={5} style={{ width: '40%', marginTop: '1%' }}>
         <div>
           <div>
             <h2> {"Muestra #1"} </h2>

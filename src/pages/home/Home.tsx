@@ -26,17 +26,17 @@ const Home = () => {
           </Button>
         </Stack>
         <Stack spacing={5} style={{ width: '30%', marginTop: '5%', marginLeft: '20px' }}>
-          <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)' }} onClick={() => navigate('/failures')}>
-            <h2>Fallos de máquina</h2>
-          </Button>
           <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)' }} onClick={() => navigate('/stock')}>
             <h2>Ver stock</h2>
           </Button>
           <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)' }} onClick={() => navigate('/scrap')}>
             <h2>Ver scrap</h2>
           </Button>
-          <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)' }} onClick={() => navigate('/indicators')}>
-            <h2>Ver indicadores</h2>
+          <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)' }} onClick={() => navigate('/failures/creation')}>
+            <h2>Ingresar fallo de máquina</h2>
+          </Button>
+          <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)' }} onClick={() => navigate('/failures/view')}>
+            <h2>Ver fallos de máquina</h2>
           </Button>
           <Button variant="contained" style={{ background: 'linear-gradient(#03396c, #005b96)' }} onClick={() => navigate('/indicators')}>
             <h2>Ver indicadores</h2>

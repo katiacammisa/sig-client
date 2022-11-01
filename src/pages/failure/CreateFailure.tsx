@@ -89,7 +89,7 @@ export const CreateFailure = () => {
           <MenuItem key={'Prensa'} value={'Prensa'}>
             <p style={{ fontSize: '20px', margin: '3px' }} >Prensa</p>
           </MenuItem>
-          <MenuItem key={'Horno de sinterizado'} value={'Horno de sinterizado'}>
+          <MenuItem key={'Sinterizado'} value={'Sinterizado'}>
             <p style={{ fontSize: '20px', margin: '3px' }} >Horno de Sinterizado</p>
           </MenuItem>
           <MenuItem key={'Roscadora'} value={'Roscadora'}>
@@ -98,7 +98,7 @@ export const CreateFailure = () => {
           <MenuItem key={'Torno'} value={'Torno'}>
             <p style={{ fontSize: '20px', margin: '3px' }} >Torno</p>
           </MenuItem>
-          <MenuItem key={'Horno de pavonado'} value={'Horno de pavonado'}>
+          <MenuItem key={'Pavonado'} value={'Pavonado'}>
             <p style={{ fontSize: '20px', margin: '3px' }} >Horno de Pavonado</p>
           </MenuItem>
         </Select>

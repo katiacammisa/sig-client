@@ -26,6 +26,7 @@ import { ViewControlSinterizado } from './pages/control/ViewControlSinterizado';
 import { ViewControlRoscado } from './pages/control/ViewControlRoscado';
 import { ViewControlTorno } from './pages/control/ViewControlTorno';
 import { ViewControlPavonado } from './pages/control/ViewControlPavonado';
+import { Indicators } from './pages/indicators/Indicators';
 import { ScrapItems } from './pages/scrap/ScrapItems';
 
 
@@ -43,7 +44,7 @@ const Router = () => {
         <Route path={'/createChecklist/:id'} element={<CreateChecklist />} />
         <Route path={'/stock'} element={<Stock />} />
         <Route path={'/scrap'} element={<ScrapItems />} />
-        <Route path={'/indicators'} element={<Home />} />
+        <Route path={'/indicators'} element={<Indicators />} />
 
         <Route path={'/failures/creation'} element={<CreateFailure />} />
         <Route path={'/failures/view'} element={<ViewFailures />} />

@@ -118,7 +118,7 @@ export const CreateFailure = () => {
           style={{ fontSize: '20px' }}
         />
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
-          <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate('/failures')}>
+          <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => navigate(-1)}>
             <h3>Volver</h3>
           </Button>
           <Button variant="contained" style={{ backgroundColor: '#000000' }} onClick={() => handleRequest()}>

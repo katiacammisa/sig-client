@@ -102,7 +102,7 @@ export const ViewControlSinterizado = () => {
           <div>
             <h2> {"Muestra #1"} </h2>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-              <p style={{ fontSize: '20px' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
+              <p style={{ fontSize: '20px' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8.20-8.35" : (order.internalNumber === 202 ? "13.90-14.00" : "35.05-35.10"))} </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
@@ -142,7 +142,7 @@ export const ViewControlSinterizado = () => {
           <div>
             <h2> {"Muestra #2"} </h2>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-              <p style={{ fontSize: '20px' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
+              <p style={{ fontSize: '20px' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8.20-8.35" : (order.internalNumber === 202 ? "13.90-14.00" : "35.05-35.10"))} </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
@@ -182,7 +182,7 @@ export const ViewControlSinterizado = () => {
           <div>
             <h2> {"Muestra #3"} </h2>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-              <p style={{ fontSize: '20px' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
+              <p style={{ fontSize: '20px' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8.20-8.35" : (order.internalNumber === 202 ? "13.90-14.00" : "35.05-35.10"))} </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
@@ -222,7 +222,7 @@ export const ViewControlSinterizado = () => {
           <div>
             <h2> {"Muestra #4"} </h2>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-              <p style={{ fontSize: '20px' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
+              <p style={{ fontSize: '20px' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8.20-8.35" : (order.internalNumber === 202 ? "13.90-14.00" : "35.05-35.10"))} </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
@@ -262,7 +262,7 @@ export const ViewControlSinterizado = () => {
           <div>
             <h2> {"Muestra #5"} </h2>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-              <p style={{ fontSize: '20px' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8,20-8,35" : (order.internalNumber === 202 ? "13,90-14,00" : "35,05-35,10"))} </p>
+              <p style={{ fontSize: '20px' }} > {"El diametro exterior debe estar entre los siguientes valores: " + (order.internalNumber === 293 ? "8.20-8.35" : (order.internalNumber === 202 ? "13.90-14.00" : "35.05-35.10"))} </p>
               <TextField
                 id="outlined-basic"
                 variant="outlined"

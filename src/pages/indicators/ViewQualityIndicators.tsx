@@ -83,14 +83,14 @@ export const ViewQualityIndicators = () => {
     title:{
       text: "Calidad del producto"
     },
-    axisY: {
-      title: "Unidades",
-      maximum: 100
-    },
     toolTip: {
       animationEnabled: true,
       contentFormatter: function ( e: { entries: { dataPoint: { y: string; }; }[]; } ) {
-        return e.entries[0].dataPoint.y + "%";
+        if(e.entries[0].dataPoint.y.toString().length > 5) {
+          return e.entries[0].dataPoint.y.toString().substring(0, 5) + "%";
+        } else {
+          return e.entries[0].dataPoint.y + "%";
+        }
       }
     },
     data: [{

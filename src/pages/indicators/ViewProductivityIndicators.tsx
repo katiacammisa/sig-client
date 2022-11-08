@@ -62,6 +62,7 @@ export const ViewProductivityIndicators = () => {
       }
       setData([...aux])
     }
+    console.log(data)
   }, [piece])
 
   useEffect(()=>{}, [indicator, data])
@@ -71,14 +72,14 @@ export const ViewProductivityIndicators = () => {
     title:{
       text: "Productividad de materia prima"
     },
-    axisY: {
-      title: "Toneladas de polvo",
-      maximum: 100
-    },
     toolTip: {
       animationEnabled: true,
       contentFormatter: function ( e: { entries: { dataPoint: { y: string; }; }[]; } ) {
-        return e.entries[0].dataPoint.y + "%";
+        if(e.entries[0].dataPoint.y.toString().length > 5) {
+          return e.entries[0].dataPoint.y.toString().substring(0, 5) + ' u/tn';
+        } else {
+          return e.entries[0].dataPoint.y + ' u/tn';
+        }
       }
     },
     data: [{

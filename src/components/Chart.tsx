@@ -6,7 +6,7 @@ const Chart = (props: { options: any; }) => {
   return (
     <CanvasJSChart
       options={props.options}
-      containerProps={{ width: '70%', height: '20vw', marginTop: '2%' }}
+      containerProps={{ width: '75%', height: '20vw', marginTop: '2%' }}
     />
   );
 };

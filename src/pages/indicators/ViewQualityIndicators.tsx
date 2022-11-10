@@ -83,6 +83,9 @@ export const ViewQualityIndicators = () => {
     title:{
       text: "Calidad del producto"
     },
+    axisY: {
+      maximum: 100
+    },
     toolTip: {
       animationEnabled: true,
       contentFormatter: function ( e: { entries: { dataPoint: { y: string; }; }[]; } ) {
